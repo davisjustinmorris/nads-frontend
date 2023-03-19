@@ -97,10 +97,7 @@
     <div class="topbar">
       <div class="toggle" onclick=" toggleMenu();"></div>
       <div class="search">
-        <label>
-          <input type="text" placeholder="search here">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </label>
+
       </div>
       <div class="user">
         <img src="logo-black.png" alt="logo" width="100px">
@@ -127,7 +124,7 @@
       </div>
       <div class="card">
         <div class="">
-          <div class="number">6</div>
+          <div class="number">5</div>
           <div class="cardName">Agency</div>
         </div>
         <div class="iconBox">
@@ -136,7 +133,7 @@
       </div>
       <div class="card">
         <div class="">
-          <div class="number">45</div>
+          <div class="number">1</div>
           <div class="cardName">Organisation</div>
         </div>
         <div class="iconBox">
@@ -485,7 +482,7 @@
         <label for="css">Agency</label>
       
           <select name="cars" id="cars">
-            <option value="volvo">Volvo</option>
+            <option value="franchisee"></option>
             <option value="saab">Saab</option>
             <option value="mercedes">Mercedes</option>
             <option value="audi">Audi</option>
@@ -667,7 +664,7 @@
       </div>
       <div class="card">
         <div class="">
-          <div class="number">6</div>
+          <div class="number">5</div>
           <div class="cardName">Agency</div>
         </div>
         <div class="iconBox">
@@ -676,7 +673,7 @@
       </div>
       <div class="card">
         <div class="">
-          <div class="number">45</div>
+          <div class="number">1</div>
           <div class="cardName">Organisation</div>
         </div>
         <div class="iconBox">
@@ -684,19 +681,24 @@
         </div>
       </div>
     </div>
-    <div class="edit-bus-container">
-      <form action="">
+    <div class="Add-franchise-details">
+      <span><h2>Add Franchisee</h2></span>
+      <form action="" id="add-franchisee-form">
+        <div class="">
+          <label for="">Code</label>
+          <input type="text" name="code">
+        </div>
         <div class="">
           <label for="">Name</label>
-          <input type="text">
+          <input type="text" name="name">
         </div>
         <div class="">
           <label for="">phone number</label>
-          <input type="text">
+          <input type="text" name="phone">
         </div>
         <div class="">
           <label for="">Address</label>
-          <input type="text">
+          <input type="text" name="address">
         </div>
         <div class="">
           <button>Submit</button>
@@ -818,9 +820,9 @@
             <form action="">
               <div class="">
                 <label for="">Ad Captured By</label>
-                <input type="radio" id="html" name="fav_language" value="HTML">
+                <input type="radio">
                 <label for="html">Franchisee</label>
-                <input type="radio" id="css" name="fav_language" value="CSS">
+                <input type="radio" >
                 <label for="css">Agency</label>
               </div>
               <div class="add-client-bus-details">
@@ -893,9 +895,64 @@
                 </tbody>
               </table>
               </div>
-              <div class="">
-
+              <div class="add-client-duraton">
+                <label for="">15s</label>
+                <input type="radio" name="15s" id="15s">
+                  <label for="">30s</label>
+                  <input type="radio" name="30s" id="30s">
+                  <label for="">45s</label>
+                  <input type="radio" name="45s" id="45s">
+                  <label for="">60s</label>
+                <input type="radio" name="60s" id="60s">
               </div>
+              <div class="date">
+                <label for="">From</label>
+                <input type="datetime-local">
+                <label for="">To</label>
+                <input type="datetime-local">
+              </div>
+              <div class="total-charge">
+                <label for="">Total Charge</label>
+                <input type="text" placeholder="000000">
+              </div>
+              <div class="Email">
+                <label for="">Email</label>
+                <input type="email" placeholder="Enter Email">
+              </div>
+              <div class="discount">
+                <label for="">Discount</label>
+                <input type="text" placeholder="Discount Amount">
+              </div>
+              <div class="Enter Advance paid">
+                <label for="">Advance paid</label>
+                <input type="text" placeholder="Advance Amount">
+              </div>
+              <div class="GST">
+                <label for="">GST Amount</label>
+                <input type="checkbox" >
+              </div>
+              <div class="ad-name">
+                <label for="">Ad Name</label>
+                <input type="text" placeholder="Ad Name">
+              </div>
+              <div class="client-name">
+                <label for="">Client Name</label>
+                <input type="text" placeholder="Enter Client Name">
+              </div>
+              <div class="client-Address">
+                <label for="">Address</label>
+                <br>
+                <textarea rows="4" cols="50" name="comment" form="usrform" placeholder="Address"></textarea>
+              </div>
+              <div class="phone Number">
+                <label for="phone">phone number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+              </div>
+              <div class="sumbit-btn">
+                <button type="submit">Submit</button>
+              </div>
+               
+
             </form>
           </div>
            
@@ -1015,40 +1072,111 @@
         </div>
       </div>
       <div class="edit-bus-container">
+        <div class="formula1">
+           <form action="">
+              <div class="">
+                <label for="">company share</label>
+                <input type="text" name="" id="" placeholder="Enter persentage%">
+              </div>
+              <div class="">
+                <label for="">Bus owner fee</label>
+                <input type="text" name="" id="" placeholder="Enter persentage%">
+              </div>
+              <div class="">
+                <label for="">Bus Organisation</label>
+                <input type="text" name="" id="" placeholder="Enter persentage%">
+              </div>
+              <div class="">
+                <label for="">Bus Franchise</label>
+                <input type="text" name="" id="" placeholder="Enter persentage%">
+              </div>
+              <div class="">
+                <label for="">Server Charge</label>
+                <input type="text" name="" id="" placeholder="Enter persentage%">
+              </div>
+              <div class="">
+                <label for="">Ad franchise</label>
+                <input type="text" name="" id="" placeholder="Enter persentage%">
+              </div>
+              <div class="">
+                <label for="">Ad agency</label>
+                <input type="text" name="" id="" placeholder="Enter persentage%">
+              </div>
+              <div class="">
+                <button type="submit">Submit</button>
+              </div>
+           </form>
+        </div>
+        <div class="formula2">
+          <form action="">
+             <div class="">
+               <label for="">company share</label>
+               <input type="text" name="" id="" placeholder="Enter persentage%">
+             </div>
+             <div class="">
+               <label for="">Bus owner fee</label>
+               <input type="text" name="" id="" placeholder="Enter persentage%">
+             </div>
+             <div class="">
+               <label for="">Bus Organisation</label>
+               <input type="text" name="" id="" placeholder="Enter persentage%">
+             </div>
+             <div class="">
+               <label for="">Bus Franchise</label>
+               <input type="text" name="" id="" placeholder="Enter persentage%">
+             </div>
+             <div class="">
+               <label for="">Server Charge</label>
+               <input type="text" name="" id="" placeholder="Enter persentage%">
+             </div>
+             <div class="">
+               <label for="">Ad franchise</label>
+               <input type="text" name="" id="" placeholder="Enter persentage%">
+             </div>
+             <div class="">
+               <label for="">Ad agency</label>
+               <input type="text" name="" id="" placeholder="Enter persentage%">
+             </div>
+             <div class="">
+               <button type="submit">Submit</button>
+             </div>
+          </form>
+       </div>
+       <div class="formula3">
         <form action="">
            <div class="">
-            <label for="">company share</label>
-            <input type="text" name="" id="" placeholder="Enter persentage%">
+             <label for="">company share</label>
+             <input type="text" name="" id="" placeholder="Enter persentage%">
            </div>
            <div class="">
-            <label for="">Bus owner fee</label>
-            <input type="text" name="" id="" placeholder="Enter persentage%">
+             <label for="">Bus owner fee</label>
+             <input type="text" name="" id="" placeholder="Enter persentage%">
            </div>
            <div class="">
-            <label for="">Bus Organisation</label>
-            <input type="text" name="" id="" placeholder="Enter persentage%">
+             <label for="">Bus Organisation</label>
+             <input type="text" name="" id="" placeholder="Enter persentage%">
            </div>
            <div class="">
-            <label for="">Bus Franchise</label>
-            <input type="text" name="" id="" placeholder="Enter persentage%">
+             <label for="">Bus Franchise</label>
+             <input type="text" name="" id="" placeholder="Enter persentage%">
            </div>
            <div class="">
-            <label for="">Server Charge</label>
-            <input type="text" name="" id="" placeholder="Enter persentage%">
+             <label for="">Server Charge</label>
+             <input type="text" name="" id="" placeholder="Enter persentage%">
            </div>
            <div class="">
-            <label for="">Ad franchise</label>
-            <input type="text" name="" id="" placeholder="Enter persentage%">
+             <label for="">Ad franchise</label>
+             <input type="text" name="" id="" placeholder="Enter persentage%">
            </div>
            <div class="">
-            <label for="">Ad agency</label>
-            <input type="text" name="" id="" placeholder="Enter persentage%">
+             <label for="">Ad agency</label>
+             <input type="text" name="" id="" placeholder="Enter persentage%">
            </div>
            <div class="">
-            <button type="submit">Submit</button>
+             <button type="submit">Submit</button>
            </div>
-           
         </form>
+     </div>
       </div>
       
           

@@ -466,8 +466,7 @@ font-weight: 500;
   background-color: #003147;
 }
 
-
-/*  franchisee container   */
+/*agency main*/
 
 body > .agency-main{
   position: absolute;
@@ -570,7 +569,7 @@ font-weight: 500;
   color: #03a9f4;
 }
 
-/*.....agency main........*/
+/*.....franchisee main........*/
 body > .franchisee-main{
   position: absolute;
   width: calc(100% - 300px);
@@ -670,6 +669,36 @@ font-weight: 500;
 .cardBox .card .iconBox{
   font-size: 2.5rem;
   color: #03a9f4;
+}
+.Add-franchise-details{
+  width:50%;
+  height: 300px;
+  padding: 20px;
+  margin: 10px 0;
+
+}
+.Add-franchise-details form div{
+    font-size: 15px;
+    margin:20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.Add-franchise-details form div label {
+  margin-right: 10px;
+}
+.Add-franchise-details form  input {
+   width: 300px;
+   height: 20px;  
+}
+.Add-franchise-details form  button {
+  background-color: #03a9f4;
+  color: #fff;
+  width: 100px;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
   
 
@@ -885,6 +914,10 @@ font-weight: 500;
   justify-content: start;
   padding: 5px 50px;
 }
+.add-client-container form .add-client-duraton{
+  display: flex;
+}
+
 
 
 

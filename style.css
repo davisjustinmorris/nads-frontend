@@ -274,70 +274,18 @@ font-weight: 500;
   margin: 10px 0;
 
 }
-.dynamic-column .franchisee-share input{
+.dynamic-column > div input{
   width: 30%;
   padding:5px ;
 }
-.dynamic-column .company-share{
+.dynamic-column >div{
   width: 100%;
   padding: 7px;
   margin: 10px 0;
 
 }
-.dynamic-column .company-share input{
-  width: 30%;
-  padding:5px ;
-}
-.dynamic-column .BusOwner-share{
-  width: 100%;
-  padding: 7px;
-  margin: 10px 0;
 
-}
-.dynamic-column .BusOwner-share input{
-  width: 30%;
-  padding:5px ;
-}
-.dynamic-column .BusOrganisation-share{
-  width: 100%;
-  padding: 7px;
-  margin: 10px 0;
 
-}
-.dynamic-column .BusOrganisation-share input{
-  width: 30%;
-  padding:5px ;
-}
-.dynamic-column .ServerCharge{
-  width: 100%;
-  padding: 7px;
-  margin: 10px 0;
-
-}
-.dynamic-column .ServerCharge input{
-  width: 30%;
-  padding:5px ;
-}
-.dynamic-column .AdFranchise-share{
-  width: 100%;
-  padding: 7px;
-  margin: 10px 0;
-
-}
-.dynamic-column .AdFranchise-share input{
-  width: 30%;
-  padding:5px ;
-}
-.dynamic-column .Agency-share{
-  width: 100%;
-  padding: 7px;
-  margin: 10px 0;
-
-}
-.dynamic-column .Agency-share input{
-  width: 30%;
-  padding:5px ;
-}
 
 
 /*  main bus....................................................................................... */

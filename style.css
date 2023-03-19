@@ -1,0 +1,915 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'poppins' , sans-serif;
+}
+body{
+  overflow-x:hidden;
+}
+
+/*
+**side bar ..........................................
+*/
+.container{
+  position: relative;
+  width: 100%;
+
+}
+.navigation{
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: #003147;
+  transition: 0.5s;
+  overflow: hidden;
+
+}
+.navigation.active{
+  width: 60px;
+}
+.navigation ul{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+}
+.navigation ul li{
+  position: relative;
+  width: 100%;
+  list-style: none;
+
+}
+.navigation ul li:hover{
+  background: #03a9f4;
+}
+.navigation ul li:nth-child(1){
+  margin-bottom: 20px;
+}
+.navigation ul li:nth-child(1):hover{
+  background: transparent;
+}
+.navigation ul li a{
+position: relative;
+display: block;
+width: 100%;
+display: flex;
+text-decoration: none;
+color: #fff;
+}
+.navigation ul li a .icon{
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.navigation ul li a .icon .fa{
+  color: #fff;
+  font-size: 24px;
+}
+.navigation ul li a .title{
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  white-space: nowrap;
+}
+
+/*
+*nav bar
+*/
+
+.main{
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: 0.5s;
+
+}
+.main.active{
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.main .topbar{
+  width: 100%;
+  background: #ffffff;
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.toggle{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.toggle::before{
+  content:'\f0c9';
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: #111;
+}
+.user{
+  position: relative;
+  min-width: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #003147;
+}
+.cardBox{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap:20px;
+
+}
+.cardBox .card{
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cardBox .card .numbers{
+position: relative;
+font-size: 2rem;
+font-weight: 500;
+}
+.cardBox .card .cardName{
+  color: #999;
+}
+.cardBox .card .iconBox{
+  font-size: 2.5rem;
+  color: #03a9f4;
+}
+
+/*recent order form */
+.details{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  padding-top: 0;
+  display: grid;
+  grid-template-columns:1fr;
+}
+.details .recentOrders{
+  position: relative;
+  min-height: 530px;
+  background: #fff;
+  padding: 20px;
+}
+.cardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.cardHeader h2{
+  font-weight: 600;
+}
+.cardHeader .btn{
+  position: relative;
+  padding: 5px 10px;
+  background: #003147;
+  color: #fff;
+  text-decoration: none;
+}
+.details {
+  width: 100%;
+  margin-top: 10px;
+
+}
+.client-details{
+  width: 100%;
+  height: 100%;
+  
+}
+.formula-container {
+ 
+}
+.formula-container select{
+  width: 200px;
+  margin:20px 0;
+  padding: 4px;
+}
+.franchisee-container{
+  
+}
+.franchisee-container select{
+  width: 100%;
+  height: 30px;
+}
+.buses-container{
+}
+.buses-container table{
+  margin: 10px;
+  line-height: 20px;
+  
+
+}
+.buses-container table tr td{
+  padding-left:20px ;  
+}
+.buses-container table tr:hover{
+  background-color: #03a9f4;
+  color: #fff;
+}
+
+
+
+.dynamic-column{
+  min-height: 500px;
+  width: 100%;
+  padding: 10px;
+  display: block;
+
+}
+
+.dynamic-column .total-order-amount{
+  width: 100%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.dynamic-column .total-order-amount  input{
+  width: 30%;
+  padding:5px ;
+}
+.dynamic-column .total-order-amount .total-amount-apply-btn{
+  color: #fff;
+  background-color: #03a9f4;
+  padding: 7px;
+  width: 100px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: 0.5s;
+}
+.dynamic-column .total-order-amount .total-amount-apply-btn:hover{
+  border: 1px solid #03a9f4;
+  background-color: #fff;
+  color: #03a9f4;
+}
+.dynamic-column .franchisee-share{
+  width: 100%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.dynamic-column .franchisee-share input{
+  width: 30%;
+  padding:5px ;
+}
+.dynamic-column .company-share{
+  width: 100%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.dynamic-column .company-share input{
+  width: 30%;
+  padding:5px ;
+}
+.dynamic-column .BusOwner-share{
+  width: 100%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.dynamic-column .BusOwner-share input{
+  width: 30%;
+  padding:5px ;
+}
+.dynamic-column .BusOrganisation-share{
+  width: 100%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.dynamic-column .BusOrganisation-share input{
+  width: 30%;
+  padding:5px ;
+}
+.dynamic-column .ServerCharge{
+  width: 100%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.dynamic-column .ServerCharge input{
+  width: 30%;
+  padding:5px ;
+}
+.dynamic-column .AdFranchise-share{
+  width: 100%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.dynamic-column .AdFranchise-share input{
+  width: 30%;
+  padding:5px ;
+}
+.dynamic-column .Agency-share{
+  width: 100%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.dynamic-column .Agency-share input{
+  width: 30%;
+  padding:5px ;
+}
+
+
+/*  main bus....................................................................................... */
+
+.bus-main{
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: 0.5s;
+
+}
+.bus-main.active{
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.bus-main .topbar{
+  width: 100%;
+  background: #ffffff;
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.toggle{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.toggle::before{
+  content:'\f0c9';
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: #111;
+}
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+.search label{
+  position: relative;
+  width: 100%;
+}
+.search label input{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  outline: none;
+  border: 1px solid rgba(0,0,0,);
+}
+.search label .fa{
+  position: absolute;
+  left: 15px;
+  top: 4px;
+  color: rgba(0,0,0);
+}
+.user{
+  position: relative;
+  min-width: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #003147;
+}
+.cardBox{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap:20px;
+
+}
+.cardBox .card{
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cardBox .card .numbers{
+position: relative;
+font-size: 2rem;
+font-weight: 500;
+}
+.cardBox .card .cardName{
+  color: #999;
+}
+.cardBox .card .iconBox{
+  font-size: 2.5rem;
+  color: #03a9f4;
+}
+
+.edit-bus-container{
+  width: 100%;
+}
+.edit-bus-container label{
+  margin: 1rem;
+}
+.edit-bus-container label input{
+  padding: 1rem;
+  margin: 1.5rem;
+}
+
+.bus-main  table {
+  margin: 10px;
+}
+.bus-main  table td{
+  padding: 10px;
+  border: 1px solid #111;
+}
+.bus-main  table tbody tr th{
+   margin: 10rem;
+  background-color: #003147;
+}
+
+
+/*  franchisee container   */
+
+body > .agency-main{
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: 0.5s;
+
+}
+.agency-main.active{
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.agency-main .topbar{
+  width: 100%;
+  background: #ffffff;
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.toggle{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.toggle::before{
+  content:'\f0c9';
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: #111;
+}
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+.search label{
+  position: relative;
+  width: 100%;
+}
+.search label input{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  outline: none;
+  border: 1px solid rgba(0,0,0,);
+}
+.search label .fa{
+  position: absolute;
+  left: 15px;
+  top: 4px;
+  color: rgba(0,0,0);
+}
+.user{
+  position: relative;
+  min-width: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #003147;
+}
+.cardBox{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap:20px;
+
+}
+.cardBox .card{
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cardBox .card .numbers{
+position: relative;
+font-size: 2rem;
+font-weight: 500;
+}
+.cardBox .card .cardName{
+  color: #999;
+}
+.cardBox .card .iconBox{
+  font-size: 2.5rem;
+  color: #03a9f4;
+}
+
+/*.....agency main........*/
+body > .franchisee-main{
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: 0.5s;
+
+}
+.franchisee-main.active{
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.franchisee-main .topbar{
+  width: 100%;
+  background: #ffffff;
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.toggle{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.toggle::before{
+  content:'\f0c9';
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: #111;
+}
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+.search label{
+  position: relative;
+  width: 100%;
+}
+.search label input{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  outline: none;
+  border: 1px solid rgba(0,0,0,);
+}
+.search label .fa{
+  position: absolute;
+  left: 15px;
+  top: 4px;
+  color: rgba(0,0,0);
+}
+.user{
+  position: relative;
+  min-width: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #003147;
+}
+.cardBox{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap:20px;
+
+}
+.cardBox .card{
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cardBox .card .numbers{
+position: relative;
+font-size: 2rem;
+font-weight: 500;
+}
+.cardBox .card .cardName{
+  color: #999;
+}
+.cardBox .card .iconBox{
+  font-size: 2.5rem;
+  color: #03a9f4;
+}
+  
+
+
+/*.....settings main......*/
+body > .settings-main{
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: 0.5s;
+
+}
+.settings-main.active{
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.settings-main .topbar{
+  width: 100%;
+  background: #ffffff;
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.toggle{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.toggle::before{
+  content:'\f0c9';
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: #111;
+}
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+.search label{
+  position: relative;
+  width: 100%;
+}
+.search label input{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  outline: none;
+  border: 1px solid rgba(0,0,0,);
+}
+.search label .fa{
+  position: absolute;
+  left: 15px;
+  top: 4px;
+  color: rgba(0,0,0);
+}
+.user{
+  position: relative;
+  min-width: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #003147;
+}
+.cardBox{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap:20px;
+
+}
+.cardBox .card{
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cardBox .card .numbers{
+position: relative;
+font-size: 2rem;
+font-weight: 500;
+}
+.cardBox .card .cardName{
+  color: #999;
+}
+.cardBox .card .iconBox{
+  font-size: 2.5rem;
+  color: #03a9f4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*  responsive  */
+@media (max-width:992px){
+  .navigation{
+      left: -300px;
+  }
+  .navigation.active{
+      left:0;
+      width: 300px;
+  }
+  .main{
+      width: 100%;
+      left: 0;
+  }
+  .main.active{
+      width:calc(100% - 300px);
+      left: 300px;
+  }
+  .cardBox {
+      grid-template-columns: repeat(2,1fr);
+  }
+  .bus-main{
+    width: 100%;
+    left: 0;
+  }
+  .bus-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+}
+
+@media (max-width:768px){
+.details{
+  grid-template-columns: repeat(1,1fr);
+}
+.cardHeader h2{
+  font-weight: 600;
+  font-size: 18px;
+
+}
+.buses-container table{
+  overflow-x: scroll;
+}
+}
+
+@media (max-width:480px){
+  .cardBox{
+     grid-template-columns: repeat(1,1fr);
+  }
+  .details .recentOrders {
+      overflow-x: auto;
+  }
+  .details .recentOrders table{
+      width: 600px;
+  }
+  .navigation{
+      width: 100%;
+      left: -100%;
+      z-index: 1000;
+  }
+  .navigation.active{
+      width: 100%;
+      left: 0;
+  }
+  .toggle.active{
+      position: fixed;
+      z-index:10000;
+      right: 0;
+      left: inherit;  
+  }
+  .toggle.active::before{
+      color: #ffff;
+  }
+  .main,
+  .main.active{
+      width: 100%;
+      left: 0;
+  }
+  .bus-main,
+  .bus-main.active{
+      width: 100%;
+      left: 0;
+  }
+  
+ }
+
+ @media (max-width:400px){
+  .dynamic-column .total-order-amount  input{
+    width: 100%;
+    padding:5px ;
+  }
+
+  .dynamic-column .franchisee-share input{
+    width: 100%;
+    padding:5px ;
+  }
+
+  .dynamic-column .company-share input{
+    width: 100%;
+    padding:5px ;
+  }
+
+  .dynamic-column .BusOwner-share input{
+    width: 100%;
+    padding:5px ;
+  }
+
+  .dynamic-column .BusOrganisation-share input{
+    width: 100%;
+    padding:5px ;
+  }
+
+  .dynamic-column .AdFranchise-share input{
+    width: 100%;
+    padding:5px ;
+  }
+
+  .dynamic-column .ServerCharge input{
+    width: 100%;
+    padding:5px ;
+  }
+
+  .dynamic-column .Agency-share input{
+    width: 100%;
+    padding:5px ;
+  }
+ }

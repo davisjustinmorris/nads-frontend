@@ -1,5 +1,6 @@
 $(document).ready(function () {
     do_list_franchisee_table();
+    do_list_agency();
 
     $('#formula').on('change', function (e) {
         console.log('selected revenue type: ', this.value);
@@ -29,6 +30,7 @@ $(document).ready(function () {
     });
 
     $(`#add-franchisee-form`).on('submit', handle_form_add_franchisee);
+    $(`#add-agency-form`).on('submit', handle_form_add_agency);
 });
 
 let link_main_class_names = {
@@ -78,6 +80,48 @@ function do_list_franchisee_table() {
                 </tr>`;
             });
             $(`#list-franchisee-table tbody`).append(new_data);
+        }
+    });
+}
+
+function handle_form_add_agency(e) {
+    e.preventDefault();
+    console.log('invoked: handle_form_add_agency');
+
+    $.ajax({
+        url: 'http://192.168.0.134:5000/entity/agency/add',
+        type: 'post',
+        data: $(`#add-agency-form`).serialize(),
+        success: function (data) {
+            console.log(data);
+            if (data.success) location.reload();
+            else if (data.error) alert(data.error);
+        }
+    });
+}
+
+function do_list_agency() {
+    console.log('invoked: do_list_franchisee_table');
+    $(`#list-franchisee-table tbody`).empty();
+    $.ajax({
+        url: 'http://192.168.0.134:5000/entity/franchisee',
+        type: 'post',
+        success: function (data) {
+            console.log(data);
+            if (!data.success) return;
+
+            let new_data = '';
+            data.payload.forEach(function (loop_data, i) {
+                new_data += `
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${loop_data.code}</td>
+                    <td>${loop_data.name}</td>
+                    <td>${loop_data.phone}</td>
+                    <td>${loop_data.address}</td>
+                </tr>`;
+            });
+            // $(`#list-franchisee-table tbody`).append(new_data);
         }
     });
 }

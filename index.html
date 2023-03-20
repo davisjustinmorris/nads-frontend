@@ -1,5 +1,4 @@
 <!doctype html>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=upf3QYt0iTy-4yFlewceVhOhmzHhn-Z6AEYJMLCZuWKwwdsmzhhalwhTsQV-YIUdGc7uK2BHCHM5FhYFdk4cQXcQ18YOqQZSqjuYQjzQVfc-f7dYDkMjRQLxv6NJzS3eH1dXnjWMZOged7dkOOEodMvgv87ZFD54OKwlhFNSk4-PPGT7c-DkfXvVgEH1BoywwBSiaqRkYr_DOIXBhDVybVv76bctCcTTkmm6J0s0_9Y-sIIuTsK1H2ADWOLW3l2PrECGF-_wQ3kLL5jfX9lq2pyp8qLBYJkNJuKgw0c_Hc09Fa1gqXh2I2fTpmviftb-FecYgFMHNNlgFF-AMa28b8eAi04_pZPVB4jYeL_YW8v5Fjj6yj5XB_hI6juN7x1C7oO-mteMCHp6NUSiyJa-J_fy2G1lI9mUAosot3FvAPIMNLlV7YT8ydf72ldHR1nwAqX9JlHMMSfRGCUf2FrxtJ6C4y7S3y9RNKEBRZT41j8xueLPQl6wWy3rGjvHEyghQo-kUJ4lavGAFCxcxzeS3Gjzl3JPCpmBGPuSVcRzZ6TwEdNZt5kqZHM9M1Ffz7a9K53c6tVRzm5BqqqkwMtg67svjijqM82dhEoxE5X4c1vJ-S6ne4ap-xlHjWGbcH4vGstydlMkJj7ONNzU5j4MEwCI6ye7RdNCh2ulAPrO7ZMX_zTT-Xy3vYSbOs39f2KoiWUOWP5qg_W0t9c1sAuZlYfyTw-N4U4vhKW0Cr75o7fuGF0vKAj6XQXdq6TnKZKSzRF7NbWHpZCfzCIgQXXOb5kF8shW0t8uSYkSlGWkyL-cxo_RJA02iogO4LEwovCcdPJNJUMvAkHdSx3TrXz6OqT0ziMi0S4SfVPIYzl49HOEmyvjvFKlBxw2QS6QuaAMwv6P_7l6fBXIg4j8zWeqGiWsrn_v-V-0C8AH1oGSwv1PYMoNoEgzOOG2ccfbst68hhlcF7XDS8mVNokpaAwypf6vIWEYCdTEQieYt2AsWiL40_tTuKw0HueBHXbWWRER3R589GdPuMcW-VrusCj6xi8ZU3QPADv0EH1XPXWSD4T8_DxkHe0M5DwEaWkju9uV90jR1SYlfF4kifTZghI_r2WKAC82JafUfLKky8-BWEHAQjoc8ri0owmJihcb-PArPF7qm4HByYiVwGue9mchvrrb2F_Yl7gV5-j-ZTAkf29MM1kIaUI6B6AIFJF9_8Fm8tUDtiK3MbthCJNn1g5_d7JF-Az69r5LhTJEmF0Y_-YJjSFfEtZ1A6Ygkp5UrdyozYB17l1qRTam0JwiyNK9rKAr1NaNGA55tE7Nqy8OHisKcDbmPG5LZMNpHXH346nAX8uUNw5fhVEd0Tu9ziY61CKAgKhz9T0AjSik63x-k8LZ8Jjkym6DMjs0LHgDC2q7oZ6--O7b5EaURri5CkpxwjqRb0rGQ7dU61A1iEmtSdzI5PxwDUtNwGEOXqoHnFEx0h_n7x5f9F1TB3dDmdhS7iBFPk50_GDiBg_Y2WhPJqjUk5FHdK2Oh7hUuplF2QRJhzIVlAdiGPvGo3uFL4M-GJOz9WkYsKy5TG_tVXD6kbzCyLxI76IhxvMPtxz1c3p0dCSzKsgRo31iqRjhZkOLJnLU7I7wcdS5m0KJHuG6N9DIkVTcvbs0y2R7Og3qcIYG5wgnyuqt4-M_nTbOUyuHUl9Kflhr3OA4G5Vfe_RtFOlWrpi-Aj7_pdYpaovQw95Q" charset="UTF-8"></script><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -510,39 +509,43 @@
       </div>
     </div>
     <div class="edit-bus-container">
-      <div class="">
-        <label for="">Ad Captured By</label>
-        <input type="radio" id="html" name="fav_language" value="HTML">
-        <label for="html">Franchisee</label>
-        <input type="radio" id="css" name="fav_language" value="CSS">
-        <label for="css">Agency</label>
-      
-          <select name="cars" id="cars">
+      <form action="" id="add-bus-form">
+        <div class="">
+          <label for="">Ad Captured By</label>
+          <input type="radio" id="add-bus-captured-by-fr" name="ad-captured-by" value="franchisee">
+          <label for="add-bus-captured-by-fr">Franchisee</label>
+          <input type="radio" id="add-bus-captured-by-ag" name="ad-captured-by" value="agency">
+          <label for="add-bus-captured-by-ag">Agency</label>
+
+          <select name="add-bus-captured-by-dropdown">
             <option value="franchisee"></option>
             <option value="saab">Saab</option>
             <option value="mercedes">Mercedes</option>
             <option value="audi">Audi</option>
           </select>
-      </div>
-      <form action="">
+        </div>
         <div class="">
           <label for="">Bus Name</label>
-          <input type="text">
+          <input type="text" name="bus-name">
         </div>
         <div class="">
           <label for="">District</label>
-          <input type="text">
+          <input type="text" name="district">
         </div>
         <div class="">
           <label for="">Bus owner Name</label>
-          <input type="text">
+          <input type="text" name="owner-name">
         </div>
         <div class="">
-          <label for="">Bus number</label>
-          <input type="text">
+          <label for="">Bus Route</label>
+          <input type="text" name="bus-route">
         </div>
         <div class="">
-          <button>Add Bus</button>
+          <label for="">Vehicle number</label>
+          <input type="text" name="vehicle-number">
+        </div>
+        <div class="">
+          <button type="submit">Add Bus</button>
         </div>
 
 
@@ -1012,13 +1015,13 @@
       </div>
     </div>
     <div class="edit-bus-container">
-      <form action="">
+      <form action="#" id="add-agency-form" method="post">
         <div class="">
           <label for="">Agency Name</label>
-          <input type="text">
+          <input type="text" name="name">
         </div>
         <div class="">
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>

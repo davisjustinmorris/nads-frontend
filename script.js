@@ -36,7 +36,8 @@ let link_main_class_names = {
     "menu-franchisee": "franchisee-main",
     "menu-bus": "bus-main",
     "menu-settings": "settings-main",
-    "menu-agency": "agency-main"
+    "menu-agency": "agency-main",
+    "menu-add-client-main":"add-client-main",
 }
 
 function handle_form_add_franchisee(e) {

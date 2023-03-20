@@ -867,29 +867,20 @@ font-weight: 500;
 }
 
 
-/*********  add client alignment*******/
+/*********  add client alignment   *******/
 
 
 
-.Email{
-  min-height: 500px;
+
+.add-client-container{
+  height: auto;
   width: 100%;
   padding: 10px;
-  display: block;
-
+  background-color: #03a9f4;
 }
-.Email .email-InputBox-addClient{
-  width: 50%;
-  padding: 7px;
-  margin: 10px 0;
-
+.add-client-container{
+  
 }
-.Email .email-InputBox-addClient  input{
-  width: 30%;
-  padding:5px ;
-}
-
-
 
 
 

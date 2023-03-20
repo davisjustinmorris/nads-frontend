@@ -792,84 +792,87 @@
                 <input type="radio" >
                 <label for="">Agency</label>
               </div>
-              <div class="add-client-bus-details">
+              <div class="addClient-form-details">
+                  <label for="" class="">Email</label>
+                  <input type="email" placeholder="Enter Email" class="email-InputBox-addClient">
+                </div>
+                <div class="client-name">
+                  <label for="">Client Name</label>
+                  <input type="text" placeholder="Enter Client Name" class="client-InputBox-addClient">
+                </div>
+                <div class="client-Address">
+                  <label for="">Address</label>
+                  <br>
+                  <textarea rows="4" cols="50" name="comment" form="usrform" placeholder="Address"></textarea>
+                </div>
+                <div class="phone Number">
+                  <label for="phone">phone number</label>
+                  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                </div>
+                <div class="sumbit-btn">
+                  <button type="submit">Submit</button>
+                </div>
               </div>
-              <div class="Email">
-                <label for="" class="">Email</label>
-                <input type="email" placeholder="Enter Email" class="email-InputBox-addClient">
+            <div class="Email">
+              <div class="add-client-list-details">
+             
+                <span><h2>LIST OF CLIENTS</h2></span>
+                <table>
+                        <thead>
+                          <tr>
+                            <th scope="col">SELECT</th>
+                            <th scope="col">NO.OF BUS</th>
+                            <th scope="col">CLIENT NAME</th>
+                            <th scope="col">PHONE NUMBER</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">ADDRESS</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th><input type="checkbox" id="bus1" name="bus1" value="Bus"></th>
+                            <td>1</td>
+                            <td >A's CLIENT</td>
+                            <td>1234567890</td>
+                            <td>abc123@gmail.com</td>
+                            <td>nation ads, palakkad</td>
+                          </tr>
+                          <tr>
+                            <th><input type="checkbox" id="bus2" name="bus2" value="Bus"></th>
+                            <td>2</td>
+                            <td >B's CLIENT</td>
+                            <td>1234567890</td>
+                            <td>abc123@gmail.com</td>
+                            <td>nation ads, palakkad</td>
+                          </tr>
+                          <tr>
+                            <th><input type="checkbox" id="bus3" name="bus3" value="Bus"></th>
+                            <td>3</td>
+                            <td >c's CLIENT</td>
+                            <td>1234567890</td>
+                            <td>abc123@gmail.com</td>
+                            <td>nation ads, palakkad</td>
+                          </tr>
+                          <tr>
+                            <th><input type="checkbox" id="bus4" name="bus4" value="Bus"></th>
+                            <td>4</td>
+                            <td >D's CLIENT</td>
+                            <td>1234567890</td>
+                            <td>abc123@gmail.com</td>
+                            <td>nation ads, palakkad</td>
+                          </tr>
+                          <tr>
+                            <th><input type="checkbox" id="bus5" name="bus5" value="Bus"></th>
+                            <td>5</td>
+                            <td >E's CLIENT</td>
+                            <td>1234567890</td>
+                            <td>abc123@gmail.com</td>
+                            <td>nation ads, palakkad</td>
+                          </tr>
+                          <tr>
+                
+                      </tbody>
+                </table>
               </div>
-              <div class="client-name">
-                <label for="">Client Name</label>
-                <input type="text" placeholder="Enter Client Name" class="client-InputBox-addClient">
-              </div>
-              <div class="client-Address">
-                <label for="">Address</label>
-                <br>
-                <textarea rows="4" cols="50" name="comment" form="usrform" placeholder="Address"></textarea>
-              </div>
-              <div class="phone Number">
-                <label for="phone">phone number</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
-              </div>
-              <div class="sumbit-btn">
-                <button type="submit">Submit</button>
-              </div>
-              <span><h2>LIST OF CLIENTS</h2></span>
-              <table>
-                      <thead>
-                        <tr>
-                          <th scope="col">SELECT</th>
-                          <th scope="col">NO.OF BUS</th>
-                          <th scope="col">CLIENT NAME</th>
-                          <th scope="col">PHONE NUMBER</th>
-                          <th scope="col">EMAIL</th>
-                          <th scope="col">ADDRESS</th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th><input type="checkbox" id="bus1" name="bus1" value="Bus"></th>
-                          <td>1</td>
-                          <td >A's CLIENT</td>
-                          <td>1234567890</td>
-                          <td>abc123@gmail.com</td>
-                          <td>nation ads, palakkad</td>
-                        </tr>
-                        <tr>
-                          <th><input type="checkbox" id="bus2" name="bus2" value="Bus"></th>
-                          <td>2</td>
-                          <td >B's CLIENT</td>
-                          <td>1234567890</td>
-                          <td>abc123@gmail.com</td>
-                          <td>nation ads, palakkad</td>
-                        </tr>
-                        <tr>
-                          <th><input type="checkbox" id="bus3" name="bus3" value="Bus"></th>
-                          <td>3</td>
-                          <td >c's CLIENT</td>
-                          <td>1234567890</td>
-                          <td>abc123@gmail.com</td>
-                          <td>nation ads, palakkad</td>
-                        </tr>
-                        <tr>
-                          <th><input type="checkbox" id="bus4" name="bus4" value="Bus"></th>
-                          <td>4</td>
-                          <td >D's CLIENT</td>
-                          <td>1234567890</td>
-                          <td>abc123@gmail.com</td>
-                          <td>nation ads, palakkad</td>
-                        </tr>
-                        <tr>
-                          <th><input type="checkbox" id="bus5" name="bus5" value="Bus"></th>
-                          <td>5</td>
-                          <td >E's CLIENT</td>
-                          <td>1234567890</td>
-                          <td>abc123@gmail.com</td>
-                          <td>nation ads, palakkad</td>
-                        </tr>
-                        <tr>
-              
-                    </tbody>
-              </table>
                
 
             </form>

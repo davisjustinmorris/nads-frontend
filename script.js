@@ -1,3 +1,5 @@
+let server_address = '192.168.0.111:5000'
+
 $(document).ready(function () {
     do_list_franchisee_table();
     do_list_agency();
@@ -8,7 +10,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "POST",
-            url: 'http://192.168.0.134:5000/ajax_sample/'+this.value,
+            url: 'http://' + server_address + '/ajax_sample/'+this.value,
             success: function (response_data) {
                 console.log('response_data: ', response_data);
                 let ops = '<option selected disabled>-- CLick to select --</option>'
@@ -47,7 +49,7 @@ function handle_form_add_franchisee(e) {
     console.log('invoked: check_form_add_franchisee');
 
     $.ajax({
-        url: 'http://192.168.0.134:5000/entity/franchisee/add',
+        url: 'http://' + server_address + '/entity/franchisee/add',
         type: 'post',
         data: $(`#add-franchisee-form`).serialize(),
         success: function (data) {
@@ -62,7 +64,7 @@ function do_list_franchisee_table() {
     console.log('invoked: do_list_franchisee_table');
     $(`#list-franchisee-table tbody`).empty();
     $.ajax({
-        url: 'http://192.168.0.134:5000/entity/franchisee',
+        url: 'http://' + server_address + '/entity/franchisee',
         type: 'post',
         success: function (data) {
             console.log(data);
@@ -89,7 +91,7 @@ function handle_form_add_agency(e) {
     console.log('invoked: handle_form_add_agency');
 
     $.ajax({
-        url: 'http://192.168.0.134:5000/entity/agency/add',
+        url: 'http://' + server_address + '/entity/agency/add',
         type: 'post',
         data: $(`#add-agency-form`).serialize(),
         success: function (data) {
@@ -104,7 +106,7 @@ function do_list_agency() {
     console.log('invoked: do_list_franchisee_table');
     $(`#list-franchisee-table tbody`).empty();
     $.ajax({
-        url: 'http://192.168.0.134:5000/entity/franchisee',
+        url: 'http://' + server_address + '/entity/franchisee',
         type: 'post',
         success: function (data) {
             console.log(data);

@@ -867,7 +867,27 @@ font-weight: 500;
 }
 
 
+/*********  add client alignment*******/
 
+
+
+.Email{
+  min-height: 500px;
+  width: 100%;
+  padding: 10px;
+  display: block;
+
+}
+.Email .email-InputBox-addClient{
+  width: 50%;
+  padding: 7px;
+  margin: 10px 0;
+
+}
+.Email .email-InputBox-addClient  input{
+  width: 30%;
+  padding:5px ;
+}
 
 
 
@@ -971,7 +991,7 @@ font-weight: 500;
     width: 100%;
     padding:5px ;
   }
-
+l 
   .dynamic-column .franchisee-share input{
     width: 100%;
     padding:5px ;

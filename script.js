@@ -104,9 +104,9 @@ function handle_form_add_agency(e) {
 
 function do_list_agency() {
     console.log('invoked: do_list_franchisee_table');
-    $(`#list-franchisee-table tbody`).empty();
+    $(`#list-agency-table tbody`).empty();
     $.ajax({
-        url: 'http://' + server_address + '/entity/franchisee',
+        url: 'http://' + server_address + '/entity/agency',
         type: 'post',
         success: function (data) {
             console.log(data);
@@ -117,13 +117,10 @@ function do_list_agency() {
                 new_data += `
                 <tr>
                     <td>${i+1}</td>
-                    <td>${loop_data.code}</td>
                     <td>${loop_data.name}</td>
-                    <td>${loop_data.phone}</td>
-                    <td>${loop_data.address}</td>
                 </tr>`;
             });
-            // $(`#list-franchisee-table tbody`).append(new_data);
+            $(`#list-agency-table tbody`).append(new_data);
         }
     });
 }

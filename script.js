@@ -1,4 +1,4 @@
-let server_address = 'localhost:5000';
+let server_address = '192.168.0.111:5000'
 
 let link_main_class_names = {
     "menu-main": "main",

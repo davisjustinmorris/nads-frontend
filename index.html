@@ -437,12 +437,12 @@
       <form action="/api/entity/bus_owner/add" id="add-bus-form">
         <div class="">
           <label for="">Ad Bus Captured By</label>
-          <input type="radio" id="add-bus-captured-by-fr" name="ad-captured-by" value="franchisee">
+          <input type="radio" id="add-bus-captured-by-fr" name="bus-captured-by" value="franchisee">
           <label for="add-bus-captured-by-fr">Franchisee</label>
-          <input type="radio" id="add-bus-captured-by-ag" name="ad-captured-by" value="agency">
+          <input type="radio" id="add-bus-captured-by-ag" name="bus-captured-by" value="agency">
           <label for="add-bus-captured-by-ag">Agency</label>
 
-          <select name="add-bus-captured-by-dropdown">
+          <select name="bus-captured-by-dropdown">
             <option value="franchisee"></option>
             <option value="saab">Saab</option>
             <option value="mercedes">Mercedes</option>
@@ -783,17 +783,17 @@
       <div class="">
         <div class="select-franchise-or-agency">
           <span><h2>ADD CLIENT</h2></span>
-          <form action="/api/entity/ad_client/add" id="form-add-client">
-            <div class="">
-              <label for="">Ad Captured By</label>
-              <input type="radio" name="ad-captured-by-type-value" value="franchisee">
-              <label for="">Franchisee</label>
-              <input type="radio" name="ad-captured-by-type-value" value="agency">
-              <label for="">Agency</label>
-              <select name="ad-captured-by-name-value">
-                <option value=""></option>
-              </select>
-            </div>
+          <form action="/api/entity/ad_client/add" id="add-client-form">
+<!--            <div class="">-->
+<!--              <label for="">Ad Captured By</label>-->
+<!--              <input type="radio" name="ad-captured-by-type-value" value="franchisee">-->
+<!--              <label for="">Franchisee</label>-->
+<!--              <input type="radio" name="ad-captured-by-type-value" value="agency">-->
+<!--              <label for="">Agency</label>-->
+<!--              <select name="ad-captured-by-name-value">-->
+<!--                <option value=""></option>-->
+<!--              </select>-->
+<!--            </div>-->
             <div class="addClient-form-details">
                 <label for="" class="">Email</label>
                 <input type="email" placeholder="Enter Email" class="email-InputBox-addClient" name="email">
@@ -809,7 +809,7 @@
             </div>
             <div class="phone Number">
               <label for="phone">phone number</label>
-              <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+              <input type="tel" id="phone" name="phone" pattern="[0-9]{10}">
             </div>
             <div class="submit-btn">
               <button type="submit">Submit</button>
@@ -820,11 +820,11 @@
     </div>
     <div class="add-client-list-details">
       <h2>LIST OF CLIENTS</h2>
-      <table>
+      <table id="list-ad-client-table">
         <thead>
         <tr>
           <th scope="col">SELECT</th>
-          <th scope="col">NO.OF BUS</th>
+          <th scope="col">SL NO.</th>
           <th scope="col">CLIENT NAME</th>
           <th scope="col">PHONE NUMBER</th>
           <th scope="col">EMAIL</th>
@@ -834,7 +834,7 @@
         <tr>
           <th><input type="checkbox" name="bus1" value="Bus"></th>
           <td>1</td>
-          <td >A's CLIENT</td>
+          <td >A CLIENT</td>
           <td>1234567890</td>
           <td>abc123@gmail.com</td>
           <td>nation ads, palakkad</td>
@@ -842,7 +842,7 @@
         <tr>
           <th><input type="checkbox" name="bus2" value="Bus"></th>
           <td>2</td>
-          <td >B's CLIENT</td>
+          <td >B CLIENT</td>
           <td>1234567890</td>
           <td>abc123@gmail.com</td>
           <td>nation ads, palakkad</td>
@@ -850,7 +850,7 @@
         <tr>
           <th><input type="checkbox" name="bus3" value="Bus"></th>
           <td>3</td>
-          <td >c's CLIENT</td>
+          <td >C CLIENT</td>
           <td>1234567890</td>
           <td>abc123@gmail.com</td>
           <td>nation ads, palakkad</td>
@@ -858,7 +858,7 @@
         <tr>
           <th><input type="checkbox" name="bus4" value="Bus"></th>
           <td>4</td>
-          <td >D's CLIENT</td>
+          <td >D CLIENT</td>
           <td>1234567890</td>
           <td>abc123@gmail.com</td>
           <td>nation ads, palakkad</td>
@@ -866,7 +866,7 @@
         <tr>
           <th><input type="checkbox" name="bus5" value="Bus"></th>
           <td>5</td>
-          <td >E's CLIENT</td>
+          <td >E CLIENT</td>
           <td>1234567890</td>
           <td>abc123@gmail.com</td>
           <td>nation ads, palakkad</td>

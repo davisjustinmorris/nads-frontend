@@ -1,3 +1,6 @@
+
+
+
 *{
   margin:0;
   padding:0;
@@ -302,7 +305,7 @@ font-weight: 500;
 
 
 
-/*......................................................................../
+/*.................*/
 /*.....franchisee main........*/
 body > .franchisee-main{
   position: absolute;
@@ -435,6 +438,20 @@ font-weight: 500;
   cursor: pointer;
 }
 
+.franchisee-container span h2{
+  color:#003147;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+}
+.franchisee-container table thead th{
+ padding-left:40px;
+ padding: 10px 0;
+}
+.franchisee-container table tbody td{
+  padding-left:40px;
+ }
 
 /*  ad client main  */
 .add-client-main{
@@ -667,6 +684,14 @@ font-weight: 500;
   margin: 1.5rem;
 }
 
+.bus-container span h2{
+  color:#003147;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+}
+
 .bus-main  table {
   margin: 10px;
 }
@@ -782,6 +807,14 @@ font-weight: 500;
   color: #03a9f4;
 }
 
+.agency-list span h2{
+  color:#003147;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+}
+
 
 
 
@@ -890,6 +923,110 @@ font-weight: 500;
   color: #03a9f4;
 }
 
+.setting-formula-container{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+  gap: 20px;
+  padding: 50px;
+}
+
+.setting-formula-container .formula-normal span h4{
+  padding: 10px 0;
+  justify-content:start;
+  display: flex;
+}
+.setting-formula-container .formula-normal form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.setting-formula-container .formula-normal form input{
+  padding: 5px;
+  border-radius: 10px;
+
+}
+
+.setting-formula-container .formula-by-other-franchisee span h4{
+  padding: 10px 0;
+  justify-content:start;
+  display: flex;
+}
+.setting-formula-container .formula-by-other-franchisee form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.setting-formula-container .formula-by-other-franchisee form input{
+  padding: 5px;
+  border-radius: 10px;
+
+}
+.setting-formula-container .formula-ad-agency-company span h4{
+  padding: 10px 0;
+  justify-content:start;
+  display: flex;
+}
+.setting-formula-container .formula-ad-agency-company form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.setting-formula-container .formula-ad-agency-company form input{
+  padding: 5px;
+  border-radius: 10px;
+
+}
+.edit-setting-container{
+  padding: 1rem;
+}
+.edit-setting-container span h2{
+  color:#003147;
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: 'Courier New', Courier, monospace;
+}
+.edit-setting-container .revenue-submit-btn{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 50px;
+  
+}
+.edit-setting-container .revenue-submit-btn button{
+     display: block;
+     background-color: #03a9f4;
+     color: #fff;
+     width: 100px;
+     padding: 10px;
+     border: none;
+     border-radius: 50px;
+     cursor: pointer;
+     transition: 0.5s;
+}
+.edit-setting-container .revenue-submit-btn button:hover{
+  color: #03a9f4;
+  background-color: #fff;
+  border: 1px solid #03a9f4;
+
+}
+
+
+
+.revenue-order-form span h2{
+  color:#003147;
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.revenue-order-form-table{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+  gap: 20px;
+  padding: 50px;
+}
+
+
 
 
 
@@ -913,6 +1050,30 @@ font-weight: 500;
   .cardBox {
       grid-template-columns: repeat(2,1fr);
   }
+  .order-main{
+    width: 100%;
+    left: 0;
+  }
+  .order-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+  .franchisee-main{
+    width: 100%;
+    left: 0;
+  }
+  .franchisee-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+  .add-client-main{
+    width: 100%;
+    left: 0;
+  }
+  .add-client-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
   .bus-main{
     width: 100%;
     left: 0;
@@ -921,6 +1082,23 @@ font-weight: 500;
     width:calc(100% - 300px);
     left: 300px;
   }
+  .agency-main{
+    width: 100%;
+    left: 0;
+  }
+  .agency-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+  .settings-main{
+    width: 100%;
+    left: 0;
+  }
+  .settings-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+
 }
 
 @media (max-width:768px){
@@ -970,10 +1148,33 @@ font-weight: 500;
       width: 100%;
       left: 0;
   }
+  .order-main,
+  .order-main.active{
+      width: 100%;
+      left: 0;
+  }
+  .franchisee-main,
+  .franchisee-main.active{
+      width: 100%;
+      left: 0;
+  }
+  .add-client-main,
+  .add-client-main.active{
+      width: 100%;
+      left: 0;
+  }
   .bus-main,
   .bus-main.active{
       width: 100%;
       left: 0;
+  }
+  .settings-main,
+  .settings-main.active{
+      width: 100%;
+      left: 0;
+  }
+  .user{
+    padding-right: 50px;
   }
   
  }
@@ -1017,5 +1218,8 @@ l
   .dynamic-column .Agency-share input{
     width: 100%;
     padding:5px ;
+  }
+  .user{
+    padding-right: 50px;
   }
  }

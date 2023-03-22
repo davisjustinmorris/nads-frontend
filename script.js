@@ -1,4 +1,4 @@
-let server_address = '192.168.0.111:5000'
+let server_address = 'localhost:5000';
 
 let link_main_class_names = {
     "menu-main": "main",
@@ -42,7 +42,7 @@ $(document).ready(function () {
     $(`#add-agency-form`).on('submit', handle_ajax_form);
     $(`#add-bus-form`).on('submit', handle_ajax_form);
 
-    load_data()
+    load_data();
 });
 
 function handle_ajax_form(e) {
@@ -74,6 +74,7 @@ function load_data() {
                 if (data.payload.franchisee) load_franchisee_table(data.payload.franchisee);
                 if (data.payload.agency) load_agency_table(data.payload.agency);
                 if (data.payload.ad_client) load_ad_client_table(data.payload.ad_client);
+                if (data.payload.bus) load_bus_table(data.payload.bus);
             }
         }
     });
@@ -120,4 +121,22 @@ function load_ad_client_table(data) {
         </tr>`;
     });
     $(`#list-ad-client-table tbody`).empty().append(new_data);
+}
+
+function load_bus_table(data) {
+    let new_data = '';
+    data.forEach(function (loop_data, i) {
+        new_data += `
+        <tr>
+            <td><input type="checkbox" name="selected_rows" value="${loop_data.id}"></td>
+            <td>${i+1}</td>
+            <td>${loop_data.district}</td>
+            <td>${loop_data.capturer_type} - ${server_data['map'][loop_data.capturer_type][loop_data.capturer_id]}</td>
+            <td>${loop_data.owner_name}</td>
+            <td>${loop_data.bus_name}</td>
+            <td>${loop_data.route_details}</td>
+            <td>${loop_data.registration_number}</td>
+        </tr>`;
+    });
+    $(`#list-bus-table tbody`).empty().append(new_data);
 }

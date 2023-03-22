@@ -1136,94 +1136,94 @@
           </div>
         </div>
       </div>
-      <div class="edit-setting-container">
+      <form id="edit-settings-form" class="edit-setting-container" action="/api/tariff/update">
         <span><h2>TARIFF RATE CALCULATION</h2></span>
          <div class="setting-formula-container">
            <div class="formula-normal">
              <span><h4>NORMAL</h4></span>
-             <form action="">
+             <div class="form">
                  <div class="">
                    <label for="">company share</label>
-                   <input type="text" name="company-share" placeholder="Enter %">
+                   <input type="text" name="normal--company" placeholder="Enter %">
                  </div>
                  <div class="">
                    <label for="">Bus owner fee</label>
-                   <input type="text" name=">Bus-owner-fee"  placeholder="Enter %">
+                   <input type="text" name="normal--bus-owner"  placeholder="Enter %">
                  </div>
                  <div class="">
                    <label for="">Bus Organisation</label>
-                   <input type="text" name="Bus-Organisation"  placeholder="Enter %">
+                   <input type="text" name="normal--bus-organisation"  placeholder="Enter %">
                  </div>
                  <div class="">
                    <label for="">Franchisee Share</label>
-                   <input type="text" name="Franchise-Share"  placeholder="Enter %">
+                   <input type="text" name="normal--franchisee"  placeholder="Enter %">
                  </div>
-             </form>
+             </div>
            </div>
            <div class="formula-by-other-franchisee">
              <span><h4>BY OTHER  FRANCHISEE</h4></span>
-             <form action="">
+             <div class="form">
                <div class="">
                  <label for="">company share</label>
-                 <input type="text" name="company-share"  placeholder="Enter %">
+                 <input type="text" name="other-fr--company"  placeholder="Enter %">
                </div>
                <div class="">
                  <label for="">AD Franchisee</label>
-                 <input type="text" name="AD-Franchise" placeholder="Enter %">
+                 <input type="text" name="other-fr--ad-franchisee" placeholder="Enter %">
                </div>
                <div class="">
                  <label for="">Bus owner fee</label>
-                 <input type="text" name="Bus-owner-fee"  placeholder="Enter %">
+                 <input type="text" name="other-fr--bus-owner"  placeholder="Enter %">
                </div>
                <div class="">
                  <label for="">Bus Organisation</label>
-                 <input type="text" name="Bus-Organisation" placeholder="Enter %">
+                 <input type="text" name="other-fr--bus-organisation" placeholder="Enter %">
                </div>
                <div class="">
                  <label for="">Bus Franchisee</label>
-                 <input type="text" name="Bus-Franchise"  placeholder="Enter %">
+                 <input type="text" name="other-fr--franchisee"  placeholder="Enter %">
                </div>
                <div class="">
                  <label for="">Server Charge</label>
-                 <input type="text" name="Server-Charge"  placeholder="Enter %">
+                 <input type="text" name="other-fr--server"  placeholder="Enter %">
                </div>
-             </form>
+             </div>
            </div>
            <div class="formula-ad-agency-company">
            <span><h4>AD AGENCY/COMPANY</h4></span>
-           <form action="">
+           <div class="form">
              <div class="">
                <label for="">company share</label>
-               <input type="text" name="company-share"  placeholder="Enter %">
+               <input type="text" name="agency--company"  placeholder="Enter %">
              </div>
              <div class="">
                <label for="">Bus owner fee</label>
-               <input type="text" name="Bus-owner-fee"  placeholder="Enter %">
+               <input type="text" name="agency--bus-owner"  placeholder="Enter %">
              </div>
              <div class="">
                <label for="">Bus Organisation</label>
-               <input type="text" name="Bus-Organisation"  placeholder="Enter %">
+               <input type="text" name="agency--bus-organisation"  placeholder="Enter %">
              </div>
              <div class="">
                <label for="">Franchisee Share</label>
-               <input type="text" name="franchisee-share"  placeholder="Enter %">
+               <input type="text" name="agency--franchisee"  placeholder="Enter %">
              </div>
              <div class="">
                <label for="">Ad agency</label>
-               <input type="text" name="Ad-agency" placeholder="Enter %">
+               <input type="text" name="agency--agency" placeholder="Enter %">
              </div>
-           </form>
+           </div>
            </div>
          </div>
          <div class="revenue-submit-btn">
          <button type="submit">Submit</button>
          </div>
-      </div>
+      </form>
        <div class="revenue-order-form">
                <div class="">
                  <span><h2>CURRENT TARIFF RATE</h2></span>
                </div>
-               <div class="revenue-order-form-table">
+               <div id="revenue-order-section" class="revenue-order-form-table">
                  <div class="normal">
                    <span><h4>NORMAL</h4></span>
                    <div class="">
@@ -1232,18 +1232,18 @@
                    </div>
                    <div class="">
                      <label for="">Bus owner fee</label>
-                     <span class="BusOwner">9%</span>
+                     <span class="bus-owner">9%</span>
                    </div>
                    <div class="">
                      <label for="">Bus Organisation</label>
-                     <span class="BusOrganisation">1%</span>
+                     <span class="bus-organisation">1%</span>
                    </div>
                    <div class="">
                      <label for="">Franchisee Share</label>
-                     <span class="Franchisee">50%</span>
+                     <span class="franchisee">50%</span>
                    </div>
                  </div>
-                 <div class="other-Franchisee">
+                 <div class="other-franchisee">
                    <span><h4>BY OTHER FRANCHISEE</h4></span>
                    <div class="">
                      <label for="">company share</label>
@@ -1251,26 +1251,26 @@
                    </div>
                    <div class="">
                      <label for="">Bus owner fee</label>
-                     <span class="BusOwner">6%</span>
+                     <span class="bus-owner">6%</span>
                    </div>
                    <div class="">
                      <label for="">Bus Organisation</label>
-                     <span class="BusOrganisation">1%</span>
+                     <span class="bus-organisation">1%</span>
                    </div>
                    <div class="">
                      <label for="">Bus Franchisee </label>
-                     <span class="bus-Franchisee">13%</span>
+                     <span class="bus-franchisee">13%</span>
                    </div>
                    <div class="">
                      <label for="">AD Franchisee</label>
-                     <span class="adFranchisee">30%</span>
+                     <span class="ad-franchisee">30%</span>
                    </div>
                    <div class="">
                      <label for="">ServerCharge</label>
-                     <span class="serverCharge">10%</span>
+                     <span class="server-charge">10%</span>
                    </div>
                  </div>
-                 <div class="company-Agency">
+                 <div class="company-agency">
                    <span><h4>AD AGENCY/COMPANY</h4></span>
                    <div class="">
                      <label for="">company share</label>
@@ -1278,19 +1278,19 @@
                    </div>
                    <div class="">
                      <label for="">Bus owner fee</label>
-                     <span class="BusOwner">6%</span>
+                     <span class="bus-owner">6%</span>
                    </div>
                    <div class="">
                      <label for="">Bus Organisation</label>
-                     <span class="BusOrganisation">0.68%</span>
+                     <span class="bus-organisation">0.68%</span>
                    </div>
                    <div class="">
                      <label for="">Franchisee Share</label>
-                     <span class="Franchisee">13.32%</span>
+                     <span class="franchisee">13.32%</span>
                    </div>
                    <div class="">
                      <label for="">Ad Agency</label>
-                     <span class="ad-Agency">20%</span>
+                     <span class="ad-agency">20%</span>
                    </div>
               </div>
        </div>

@@ -1051,7 +1051,7 @@ font-weight: 500;
   justify-content:start;
   display: flex;
 }
-.setting-formula-container .formula-normal form {
+.setting-formula-container .formula-normal .form {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -1067,7 +1067,7 @@ font-weight: 500;
   justify-content:start;
   display: flex;
 }
-.setting-formula-container .formula-by-other-franchisee form {
+.setting-formula-container .formula-by-other-franchisee .form {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -1082,7 +1082,7 @@ font-weight: 500;
   justify-content:start;
   display: flex;
 }
-.setting-formula-container .formula-ad-agency-company form {
+.setting-formula-container .formula-ad-agency-company .form {
   display: flex;
   flex-direction: column;
   gap: 5px;

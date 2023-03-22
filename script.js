@@ -41,6 +41,7 @@ $(document).ready(function () {
     $(`#add-franchisee-form`).on('submit', handle_ajax_form);
     $(`#add-agency-form`).on('submit', handle_ajax_form);
     $(`#add-bus-form`).on('submit', handle_ajax_form);
+    $(`#edit-settings-form`).on('submit', handle_ajax_form);
 
     load_data();
 });

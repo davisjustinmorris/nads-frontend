@@ -28,6 +28,12 @@
             <span class="title">dashboard</span>
           </a>
         </li>
+        <li class="menu-order">
+          <a href="#">
+            <span class="icon"><i class="fa fa-book"></i></span>
+            <span class="title">ORDERS</span>
+          </a>
+        </li>
         <li class="menu-franchisee">
           <a href="#">
             <span class="icon"><i class="fa fa-user"></i></span>
@@ -73,7 +79,7 @@
         </li>
         <li class="menu-agency">
           <a href="#">
-            <span class="icon"><i class="fa fa-book" aria-hidden="false"></i></span>
+            <span class="icon"><i class="fa fa-cog" aria-hidden="false"></i></span>
             <span class="title">COMPANY AS AGENCY</span>
           </a>
         </li>
@@ -133,10 +139,10 @@
       <div class="card">
         <div class="">
           <div class="number">1</div>
-          <div class="cardName">Organisation</div>
+          <div class="cardName">Client Ads</div>
         </div>
         <div class="iconBox">
-          <i class="fa fa-users" aria-hidden="true"></i>
+          <i class="fa fa-address-book" aria-hidden="true"></i>
         </div>
       </div>
     </div>
@@ -384,221 +390,102 @@
 
   </div>
 <!--main end-->
-
-
- <!--bus main-->
-  <div class="bus-main" style="display: none;">
-    <div class="topbar">
-      <div class="toggle" onclick=" toggleMenu();"></div>
-      <div class="user">
-        <img src="logo-black.png" alt="logo" width="100px">
-      </div>
+ 
+<!--order-main-->
+<div class="order-main" style="display: none;">
+  <div class="topbar">
+    <div class="toggle" onclick=" toggleMenu();"></div>
+    <div class="user">
+      <img src="logo-black.png" alt="logo" width="100px">
     </div>
-    <div class="cardBox">
-      <div class="card menu-franchisee">
-        <div class="">
-          <div class="number">28</div>
-          <div class="cardName">Franchisees</div>
-        </div>
-        <div class="iconBox">
-          <i class="fa fa-user" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="card">
-        <div class="">
-          <div class="number menu-bus">138</div>
-          <div class="cardName">BUSES</div>
-        </div>
-        <div class="iconBox">
-          <i class="fa fa-bus" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="card ">
-        <div class="">
-          <div class="number menu-agency">5</div>
-          <div class="cardName">Agency</div>
-        </div>
-        <div class="iconBox">
-          <i class="fa fa-book" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="card">
-        <div class="">
-          <div class="number">1</div>
-          <div class="cardName">Organisation</div>
-        </div>
-        <div class="iconBox">
-          <i class="fa fa-users" aria-hidden="true"></i>
-        </div>
-      </div>
-    </div>
-    <div class="edit-bus-container">
-      <span><h2>ADD BUS</h2></span>
-      <form action="/api/entity/bus_owner/add" id="add-bus-form">
-        <div class="">
-          <label for="">Ad Bus Captured By</label>
-          <input type="radio" id="add-bus-captured-by-fr" name="bus-captured-by-type" value="franchisee">
-          <label for="add-bus-captured-by-fr">Franchisee</label>
-          <input type="radio" id="add-bus-captured-by-ag" name="bus-captured-by-type" value="agency">
-          <label for="add-bus-captured-by-ag">Agency</label>
-
-          <select name="bus-captured-by-id">
-            <option value="franchisee"></option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-          </select>
-        </div>
-        <div class="">
-          <label for="">Bus Name</label>
-          <input type="text" name="bus-name">
-        </div>
-        <div class="">
-          <label for="">District</label>
-          <input type="text" name="district">
-        </div>
-        <div class="">
-          <label for="">Bus owner Name</label>
-          <input type="text" name="owner-name">
-        </div>
-        <div class="">
-          <label for="">Bus Route</label>
-          <input type="text" name="bus-route">
-        </div>
-        <div class="">
-          <label for="">Vehicle number</label>
-          <input type="text" name="vehicle-number">
-        </div>
-        <div class="">
-          <button type="submit">Add Bus</button>
-        </div>
-
-
-      </form>
-    </div>
-    <div class="bus-container">
-      <span><h2>LIST OF BUSES</h2></span>
-      <table>
-          <thead>
-            <tr>
-              <th scope="col">SELECT</th>
-              <th scope="col">NO.OF BUS</th>
-              <th scope="col">DISTRICT</th>
-              <th scope="col">FRANCHISE NAME</th>
-              <th scope="col">NAME OF BUS OWNER</th>
-              <th scope="col">BUS NAME</th>
-              <th scope="col">BUS ROUTE</th>
-              <th scope="col">VEHICLE NO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th><input type="checkbox" id="bus1" name="bus1" value="Bus"></th>
-              <td>1</td>
-              <td >ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>BAIJU</td>
-              <td>GEEBEES</td>
-              <td>KAKKANAD-FORT KOCHI</td>
-              <td>KL-06-E-1997</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus2" name="bus2" value="Bus"></th>
-              <td>2</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>NISHAD</td>
-              <td>GURUDEV</td>
-              <td>KALOOR-MOOVATTUPUZHA</td>
-              <td>KL-03-Y-2700</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus3" name="bus3" value="Bus"></th>
-              <td>3</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>SAJU JOSEPH</td>
-              <td>DEVI PRASADHAM</td>
-              <td>CHITTOOR-CHOTTANIKARA</td>
-              <td>KL-07-AP-8094</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus4" name="bus4" value="Bus"></th>
-              <td>4</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>PRASAD</td>
-              <td>DEVI PRASADHAM</td>
-              <td>CHITTOOR-CHERANALLOR-MATTANCHERY</td>
-              <td>KL-65-C-1572</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus5" name="bus5" value="Bus"></th>
-              <td>5</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>AJAYAKUMAR</td>
-              <td>RAO'S</td>
-              <td>CHERANALOR-THRIPUNITHURA</td>
-              <td>KL-40-A-8765</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus6" name="bus6" value="Bus"></th>
-              <td>6</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>ABDUL SALAM</td>
-              <td>SADHIKA</td>
-              <td>ERNAKULAM-PARAVOOR</td>
-              <td>KL-42-Q-4567</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus7" name="bus7" value="Bus"></th>
-              <td>7</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>ANSAR ALI</td>
-              <td>AJMEER</td>
-              <td>PARAVOOR-EDAPALLY-VAITTILA</td>
-              <td>KL-08-AF-7299</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus8" name="bus8" value="Bus"></th>
-              <td>8</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>SURESH</td>
-              <td>AJMEER</td>
-              <td>CHERANALLOR-THEAVARA FURRY</td>
-              <td>KL-07-BF-7287</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus9" name="bus9" value="Bus"></th>
-              <td>9</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>SUHARA</td>
-              <td>AMMANATH</td>
-              <td>CHATHANADU-KALLOR</td>
-              <td>KL-17-E-1896</td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id="bus10" name="bus10" value="Bus"></th>
-              <td>10</td>
-              <td>ERNAKULAM</td>
-              <td>BOBBY</td>
-              <td>KHALID</td>
-              <td>ABAABEEL</td>
-              <td>PARAVOOR-KALLOR</td>
-              <td>KL-23-A-7929</td>
-            </tr>
-  
-        </tbody>
-      </table>
-        
-    </div>
-    
   </div>
+  <div class="cardBox">
+    <div class="card">
+      <div class="">
+        <div class="number">28</div>
+        <div class="cardName">Franchisees</div>
+      </div>
+      <div class="iconBox">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="card">
+      <div class="">
+        <div class="number">138</div>
+        <div class="cardName">BUSES</div>
+      </div>
+      <div class="iconBox">
+        <i class="fa fa-bus" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="card">
+      <div class="">
+        <div class="number">6</div>
+        <div class="cardName">Agency</div>
+      </div>
+      <div class="iconBox">
+        <i class="fa fa-book" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="card">
+      <div class="">
+        <div class="number">1</div>
+        <div class="cardName">Client Ads</div>
+      </div>
+      <div class="iconBox">
+        <i class="fa fa-address-book" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+  <div class="edit-order-container">
+    <span><h2>ADD ORDER</h2></span>
+    <form action="" id="" method="post">
+      <div class="">
+        <label for="">Agency Name</label>
+        <input type="text" name="name">
+      </div>
+      <div class="">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="order-list">
+    <span><h2>LIST OF order</h2></span>
+    <table id="list-order-table">
+      <thead>
+        <tr>
+          <th>Serial NO</th>
+          <th>Agency Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>c</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>D</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+      
+</div>
 
   <!--franchisee main-->
   <div class="franchisee-main" style="display: none;">
@@ -639,10 +526,10 @@
       <div class="card">
         <div class="">
           <div class="number">1</div>
-          <div class="cardName">Organisation</div>
+          <div class="cardName">Client Ads</div>
         </div>
         <div class="iconBox">
-          <i class="fa fa-users" aria-hidden="true"></i>
+          <i class="fa fa-address-book" aria-hidden="true"></i>
         </div>
       </div>
     </div>
@@ -880,6 +767,231 @@
     
   </div>
 
+   <!--bus main-->
+   <div class="bus-main" style="display: none;">
+    <div class="topbar">
+      <div class="toggle" onclick=" toggleMenu();"></div>
+      <div class="user">
+        <img src="logo-black.png" alt="logo" width="100px">
+      </div>
+    </div>
+    <div class="cardBox">
+      <div class="card menu-franchisee">
+        <div class="">
+          <div class="number">28</div>
+          <div class="cardName">Franchisees</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div class="">
+          <div class="number menu-bus">138</div>
+          <div class="cardName">BUSES</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-bus" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="card ">
+        <div class="">
+          <div class="number menu-agency">5</div>
+          <div class="cardName">Agency</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-book" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div class="">
+          <div class="number">1</div>
+          <div class="cardName">Client Ads</div>
+        </div>
+        <div class="iconBox">
+          <i class="fa fa-address-book" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="edit-bus-container">
+      <span><h2>ADD BUS</h2></span>
+      <form action="/api/entity/bus_owner/add" id="add-bus-form">
+        <div class="">
+          <label for="">Ad Bus Captured By</label>
+          <input type="radio" id="add-bus-captured-by-fr" name="bus-captured-by-type" value="franchisee">
+          <label for="add-bus-captured-by-fr">Franchisee</label>
+          <input type="radio" id="add-bus-captured-by-ag" name="bus-captured-by-type" value="agency">
+          <label for="add-bus-captured-by-ag">Agency</label>
+
+          <select name="bus-captured-by-id">
+            <option value="franchisee"></option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+        <div class="">
+          <label for="">Bus Name</label>
+          <input type="text" name="bus-name">
+        </div>
+        <div class="">
+          <label for="">District</label>
+          <select name="district">
+            <option value="ernakulam">ERNAKULAM</option>
+            <option value="kannur">KANNUR</option>
+            <option value="kollam">KOLLAM</option>
+            <option value="kottayam">KOTTAYAM</option>
+            <option value="kozhikode">KOZHIKODE</option>
+            <option value="malappuram">MALAPPURAM</option>
+            <option value="palakkad">PALAKKKAD</option>
+            <option value="pathanamthitta">PATHANAMTHITTA</option>
+            <option value="trivandrum">TRIVANDRUM</option>
+            <option value="thrissur">THRISSUR</option>
+          </select>
+        </div>
+        <div class="">
+          <label for="">Bus owner Name</label>
+          <input type="text" name="owner-name">
+        </div>
+        <div class="">
+          <label for="">Bus Route</label>
+          <input type="text" name="bus-route">
+        </div>
+        <div class="">
+          <label for="">Vehicle number</label>
+          <input type="text" name="vehicle-number">
+        </div>
+        <div class="">
+          <button type="submit">Add Bus</button>
+        </div>
+
+
+      </form>
+    </div>
+    <div class="bus-container">
+      <span><h2>LIST OF BUSES</h2></span>
+      <table>
+          <thead>
+            <tr>
+              <th scope="col">SELECT</th>
+              <th scope="col">NO.OF BUS</th>
+              <th scope="col">DISTRICT</th>
+              <th scope="col">AD CAPTURED BY</th>
+              <th scope="col">NAME OF BUS OWNER</th>
+              <th scope="col">BUS NAME</th>
+              <th scope="col">BUS ROUTE</th>
+              <th scope="col">VEHICLE NO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><input type="checkbox" id="bus1" name="bus1" value="Bus"></th>
+              <td>1</td>
+              <td >ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>BAIJU</td>
+              <td>GEEBEES</td>
+              <td>KAKKANAD-FORT KOCHI</td>
+              <td>KL-06-E-1997</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus2" name="bus2" value="Bus"></th>
+              <td>2</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>NISHAD</td>
+              <td>GURUDEV</td>
+              <td>KALOOR-MOOVATTUPUZHA</td>
+              <td>KL-03-Y-2700</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus3" name="bus3" value="Bus"></th>
+              <td>3</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>SAJU JOSEPH</td>
+              <td>DEVI PRASADHAM</td>
+              <td>CHITTOOR-CHOTTANIKARA</td>
+              <td>KL-07-AP-8094</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus4" name="bus4" value="Bus"></th>
+              <td>4</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>PRASAD</td>
+              <td>DEVI PRASADHAM</td>
+              <td>CHITTOOR-CHERANALLOR-MATTANCHERY</td>
+              <td>KL-65-C-1572</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus5" name="bus5" value="Bus"></th>
+              <td>5</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>AJAYAKUMAR</td>
+              <td>RAO'S</td>
+              <td>CHERANALOR-THRIPUNITHURA</td>
+              <td>KL-40-A-8765</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus6" name="bus6" value="Bus"></th>
+              <td>6</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>ABDUL SALAM</td>
+              <td>SADHIKA</td>
+              <td>ERNAKULAM-PARAVOOR</td>
+              <td>KL-42-Q-4567</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus7" name="bus7" value="Bus"></th>
+              <td>7</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>ANSAR ALI</td>
+              <td>AJMEER</td>
+              <td>PARAVOOR-EDAPALLY-VAITTILA</td>
+              <td>KL-08-AF-7299</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus8" name="bus8" value="Bus"></th>
+              <td>8</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>SURESH</td>
+              <td>AJMEER</td>
+              <td>CHERANALLOR-THEAVARA FURRY</td>
+              <td>KL-07-BF-7287</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus9" name="bus9" value="Bus"></th>
+              <td>9</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>SUHARA</td>
+              <td>AMMANATH</td>
+              <td>CHATHANADU-KALLOR</td>
+              <td>KL-17-E-1896</td>
+            </tr>
+            <tr>
+              <th><input type="checkbox" id="bus10" name="bus10" value="Bus"></th>
+              <td>10</td>
+              <td>ERNAKULAM</td>
+              <td>BOBBY</td>
+              <td>KHALID</td>
+              <td>ABAABEEL</td>
+              <td>PARAVOOR-KALLOR</td>
+              <td>KL-23-A-7929</td>
+            </tr>
+  
+        </tbody>
+      </table>
+        
+    </div>
+    
+  </div>
+
 
   <!--agency main-->
   <div class="agency-main" style="display: none;">
@@ -920,10 +1032,10 @@
       <div class="card">
         <div class="">
           <div class="number">1</div>
-          <div class="cardName">Client</div>
+          <div class="cardName">Client Ads</div>
         </div>
         <div class="iconBox">
-          <i class="fa fa-users" aria-hidden="true"></i>
+          <i class="fa fa-address-book" aria-hidden="true"></i>
         </div>
       </div>
     </div>
@@ -1016,96 +1128,178 @@
         </div>
         <div class="card">
           <div class="">
-            <div class="number">45</div>
-            <div class="cardName">Organisation</div>
+            <div class="number">1</div>
+            <div class="cardName">Client Ads</div>
           </div>
           <div class="iconBox">
-            <i class="fa fa-users" aria-hidden="true"></i>
+            <i class="fa fa-address-book" aria-hidden="true"></i>
           </div>
         </div>
       </div>
-      <div class="edit-bus-container">
+      <div class="edit-setting-container">
         <span><h2>TARIFF RATE CALCULATION</h2></span>
-        <div class="formula-normal">
-          <span><h4>NORMAL</h4></span>
+         <div class="setting-formula-container">
+           <div class="formula-normal">
+             <span><h4>NORMAL</h4></span>
+             <form action="">
+                 <div class="">
+                   <label for="">company share</label>
+                   <input type="text" name="company-share" placeholder="Enter %">
+                 </div>
+                 <div class="">
+                   <label for="">Bus owner fee</label>
+                   <input type="text" name=">Bus-owner-fee"  placeholder="Enter %">
+                 </div>
+                 <div class="">
+                   <label for="">Bus Organisation</label>
+                   <input type="text" name="Bus-Organisation"  placeholder="Enter %">
+                 </div>
+                 <div class="">
+                   <label for="">Franchisee Share</label>
+                   <input type="text" name="Franchise-Share"  placeholder="Enter %">
+                 </div>
+             </form>
+           </div>
+           <div class="formula-by-other-franchisee">
+             <span><h4>BY OTHER  FRANCHISEE</h4></span>
+             <form action="">
+               <div class="">
+                 <label for="">company share</label>
+                 <input type="text" name="company-share"  placeholder="Enter %">
+               </div>
+               <div class="">
+                 <label for="">AD Franchisee</label>
+                 <input type="text" name="AD-Franchise" placeholder="Enter %">
+               </div>
+               <div class="">
+                 <label for="">Bus owner fee</label>
+                 <input type="text" name="Bus-owner-fee"  placeholder="Enter %">
+               </div>
+               <div class="">
+                 <label for="">Bus Organisation</label>
+                 <input type="text" name="Bus-Organisation" placeholder="Enter %">
+               </div>
+               <div class="">
+                 <label for="">Bus Franchisee</label>
+                 <input type="text" name="Bus-Franchise"  placeholder="Enter %">
+               </div>
+               <div class="">
+                 <label for="">Server Charge</label>
+                 <input type="text" name="Server-Charge"  placeholder="Enter %">
+               </div>
+             </form>
+           </div>
+           <div class="formula-ad-agency-company">
+           <span><h4>AD AGENCY/COMPANY</h4></span>
            <form action="">
-              <div class="">
-                <label for="">company share</label>
-                <input type="text" name="company-share" id="company-share" placeholder="Enter %">
-              </div>
-              <div class="">
-                <label for="">Bus owner fee</label>
-                <input type="text" name=">Bus-owner-fee" id=">Bus-owner-fee" placeholder="Enter %">
-              </div>
-              <div class="">
-                <label for="">Bus Organisation</label>
-                <input type="text" name="Bus-Organisation" id="Bus-Organisation" placeholder="Enter %">
-              </div>
-              <div class="">
-                <label for="">Franchise Share</label>
-                <input type="text" name="Franchise-Share" id="Franchise-Share" placeholder="Enter %">
-              </div>
-           </form>
-        </div>
-        <div class="formula-by-other-franchisee">
-          <span><h4>BY OTHER  FRANCHISEE</h4></span>
-          <form action="">
              <div class="">
                <label for="">company share</label>
-               <input type="text" name="company-share" id="company-share" placeholder="Enter %">
+               <input type="text" name="company-share"  placeholder="Enter %">
              </div>
              <div class="">
-              <label for="">AD Franchise</label>
-              <input type="text" name="AD-Franchise" id="AD-Franchise" placeholder="Enter %">
-            </div>
-             <div class="">
                <label for="">Bus owner fee</label>
-               <input type="text" name="Bus-owner-fee" id="Bus-owner-fee" placeholder="Enter %">
+               <input type="text" name="Bus-owner-fee"  placeholder="Enter %">
              </div>
              <div class="">
                <label for="">Bus Organisation</label>
-               <input type="text" name="Bus-Organisation" id="Bus-Organisation" placeholder="Enter %">
+               <input type="text" name="Bus-Organisation"  placeholder="Enter %">
              </div>
              <div class="">
-               <label for="">Bus Franchise</label>
-               <input type="text" name="Bus-Franchise" id="Bus-Franchise" placeholder="Enter %">
+               <label for="">Franchisee Share</label>
+               <input type="text" name="franchisee-share"  placeholder="Enter %">
              </div>
              <div class="">
-               <label for="">Server Charge</label>
-               <input type="text" name="Server-Charge" id="Server-Charge" placeholder="Enter %">
+               <label for="">Ad agency</label>
+               <input type="text" name="Ad-agency" placeholder="Enter %">
              </div>
-          </form>
-       </div>
-       <div class="formula-ad-agency-company">
-        <span><h4>AD AGENCY/COMPANY</h4></span>
-        <form action="">
-           <div class="">
-             <label for="">company share</label>
-             <input type="text" name="company-share" id="company-share" placeholder="Enter %">
+           </form>
            </div>
-           <div class="">
-             <label for="">Bus owner fee</label>
-             <input type="text" name="Bus-owner-fee" id="Bus-owner-fee" placeholder="Enter %">
-           </div>
-           <div class="">
-             <label for="">Bus Organisation</label>
-             <input type="text" name="Bus-Organisation" id="Bus-Organisation" placeholder="Enter %">
-           </div>
-           <div class="">
-             <label for="">Franchise Share</label>
-             <input type="text" name="" id="" placeholder="Enter %">
-           </div>
-           <div class="">
-             <label for="">Ad agency</label>
-             <input type="text" name="" id="" placeholder="Enter %">
-           </div>
-        </form>
-     </div>
-              <div class="revenue-submit-btn">
-                <button type="submit">Submit</button>
-              </div>
+         </div>
+         <div class="revenue-submit-btn">
+         <button type="submit">Submit</button>
+         </div>
       </div>
-      
+       <div class="revenue-order-form">
+               <div class="">
+                 <span><h2>CURRENT TARIFF RATE</h2></span>
+               </div>
+               <div class="revenue-order-form-table">
+                 <div class="normal">
+                   <span><h4>NORMAL</h4></span>
+                   <div class="">
+                     <label for="">company share</label>
+                     <span class="company">40%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Bus owner fee</label>
+                     <span class="BusOwner">9%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Bus Organisation</label>
+                     <span class="BusOrganisation">1%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Franchisee Share</label>
+                     <span class="Franchisee">50%</span>
+                   </div>
+                 </div>
+                 <div class="other-Franchisee">
+                   <span><h4>BY OTHER FRANCHISEE</h4></span>
+                   <div class="">
+                     <label for="">company share</label>
+                     <span class="company" >40%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Bus owner fee</label>
+                     <span class="BusOwner">6%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Bus Organisation</label>
+                     <span class="BusOrganisation">1%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Bus Franchisee </label>
+                     <span class="bus-Franchisee">13%</span>
+                   </div>
+                   <div class="">
+                     <label for="">AD Franchisee</label>
+                     <span class="adFranchisee">30%</span>
+                   </div>
+                   <div class="">
+                     <label for="">ServerCharge</label>
+                     <span class="serverCharge">10%</span>
+                   </div>
+                 </div>
+                 <div class="company-Agency">
+                   <span><h4>AD AGENCY/COMPANY</h4></span>
+                   <div class="">
+                     <label for="">company share</label>
+                     <span class="company">60%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Bus owner fee</label>
+                     <span class="BusOwner">6%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Bus Organisation</label>
+                     <span class="BusOrganisation">0.68%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Franchisee Share</label>
+                     <span class="Franchisee">13.32%</span>
+                   </div>
+                   <div class="">
+                     <label for="">Ad Agency</label>
+                     <span class="ad-Agency">20%</span>
+                   </div>
+              </div>
+       </div>
+
+
+
+     
+         
+       </div>
           
     </div>
 
@@ -1119,16 +1313,27 @@
 
   <script src="script.js"> </script>
   <script >
-    function toggleMenu(){
+     function toggleMenu(){
     let toggle = document.querySelector('.toggle');
     let navigation = document.querySelector('.navigation');
     let main = document.querySelector('.main');
+    let orderMain = document.querySelector('.order-main');
+    let franchiseeMain = document.querySelector('.franchisee-main');
+    let addClientMain = document.querySelector('.add-client-main')
     let busMain = document.querySelector('.bus-main');
+    let agencyMain = document.querySelector('.agency-main');
+    let settingsMain = document.querySelector('.settings-main');
+    
+
     toggle.classList.toggle('active');
     navigation.classList.toggle('active');
     main.classList.toggle('active');
+    orderMain.classList.toggle('active');
+    franchiseeMain.classList.toggle('active');
+    addClientMain.classList.toggle('active');
     busMain.classList.toggle('active');
-
+    agencyMain.classList.toggle('active');
+    settingsMain.classList.toggle('active');
 
   }
   </script>

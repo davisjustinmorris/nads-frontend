@@ -7,6 +7,7 @@ let link_main_class_names = {
     "menu-settings": "settings-main",
     "menu-agency": "agency-main",
     "menu-add-client-main":"add-client-main",
+    "menu-order":"order-main"
 }
 
 let server_data;

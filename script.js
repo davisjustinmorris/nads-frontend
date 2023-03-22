@@ -20,7 +20,7 @@ $(document).ready(function () {
         console.log(link_class, div_class);
     });
 
-    $(`#add-bus-form input[name='bus-captured-by']`).on('change', function () {
+    $(`#add-bus-form input[name='bus-captured-by-type']`).on('change', function () {
         console.log(this);
         if (!server_data.franchisee || !server_data.agency) {
             console.log('dropdown data not set due to absence of franchisee or agency data');
@@ -32,13 +32,14 @@ $(document).ready(function () {
             data += `<option value="${loop_data.id}">${loop_data.name}</option>`;
         });
         console.log('dropdown about to be populated by: ', data);
-        $(`#add-bus-form select[name='bus-captured-by-dropdown']`).empty().append(data);
+        $(`#add-bus-form select[name='bus-captured-by-id']`).empty().append(data);
 
     });
 
     $(`#add-client-form`).on('submit', handle_ajax_form);
     $(`#add-franchisee-form`).on('submit', handle_ajax_form);
     $(`#add-agency-form`).on('submit', handle_ajax_form);
+    $(`#add-bus-form`).on('submit', handle_ajax_form);
 
     load_data()
 });

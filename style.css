@@ -403,6 +403,37 @@ font-weight: 500;
   font-style: italic;
 }
 
+.order-form-table{
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+  gap: 20px;
+  padding: 50px;
+}
+.order-form-table .normal span h4{
+  margin-bottom: 1rem;
+}
+.order-form-table .other-Franchisee span h4{
+  margin-bottom: 1rem;
+}
+
+.order-form-table .company-Agency span h4{
+  margin-bottom: 1rem;
+  
+}
+
+
+.order-form-table .normal div{
+     padding: 5px 0;    
+}
+.order-form-table .other-Franchisee div{
+  padding: 5px 0;    
+}
+.order-form-table .company-Agency div{
+  padding: 5px 0;    
+}
+
+.order-form-container
+
 .orderbus-input-items{
   padding: 10px;
   margin: 10px;
@@ -416,6 +447,13 @@ font-weight: 500;
 }
 .display-inputs-container div{
    margin: 1rem; 
+}
+.final-calculation-container{
+  padding: 10px;
+  margin: 10px;
+}
+.final-calculation-container div{
+  margin: 1rem;
 }
 
 

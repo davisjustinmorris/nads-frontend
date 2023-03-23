@@ -157,7 +157,7 @@ font-weight: 500;
   color: #03a9f4;
 }
 
-.details{
+.orderbus-input-items{
   position: relative;
   width: 100%;
   padding: 20px;
@@ -165,130 +165,10 @@ font-weight: 500;
   display: grid;
   grid-template-columns:1fr;
 }
-.details .recentOrders{
-  position: relative;
-  min-height: 530px;
-  background: #fff;
-  padding: 20px;
+.display-inputs-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit(minmax()));
 }
-.cardHeader{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.cardHeader h2{
-  font-weight: 600;
-}
-.cardHeader .btn{
-  position: relative;
-  padding: 5px 10px;
-  background: #003147;
-  color: #fff;
-  text-decoration: none;
-}
-.details {
-  width: 100%;
-  margin-top: 10px;
-
-}
-.client-details{
-  width: 100%;
-  height: 100%;
-  
-}
-.formula-container select{
-  width: 200px;
-  margin:20px 0;
-  padding: 4px;
-}
-.franchisee-container select{
-  width: 100%;
-  height: 30px;
-}
-.buses-container{
-  overflow-x: scroll;
-}
-.buses-container table{
-  margin: 10px;
-  line-height: 20px;
-  
-
-}
-.buses-container table tr td{
-  padding-left:20px ;  
-}
-.buses-container table tr:hover{
-  background-color: #03a9f4;
-  color: #fff;
-}
-.buses-table-container table tbody tr button {
-  background-color: #03a9f4;
-  padding: 5px;
-  color: #fff;
-  border: none;
-}
-.buses-table-container table tbody tr button:hover{
-  border: 1px solid #000;
-}
-
-
-
-.dynamic-column{
-  min-height: 500px;
-  width: 100%;
-  padding: 10px;
-  display: block;
-
-}
-
-.dynamic-column .total-order-amount{
-  width: 100%;
-  padding: 7px;
-  margin: 10px 0;
-
-}
-.dynamic-column .total-order-amount  input{
-  width: 30%;
-  padding:5px ;
-}
-.dynamic-column .total-order-amount .total-amount-apply-btn{
-  color: #fff;
-  background-color: #03a9f4;
-  padding: 7px;
-  width: 100px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 1rem;
-  transition: 0.5s;
-}
-.dynamic-column .total-order-amount .total-amount-apply-btn:hover{
-  border: 1px solid #03a9f4;
-  background-color: #fff;
-  color: #03a9f4;
-}
-.dynamic-column .franchisee-share{
-  width: 100%;
-  padding: 7px;
-  margin: 10px 0;
-
-}
-.dynamic-column > div label input{
-  width: 30%;
-  padding:5px ;
-}
-.dynamic-column >div{
-  width: 100%;
-  padding: 7px;
-  margin: 10px 0;
-
-}
-.dynamic-column >.ad-sec{
-  padding: 0;
-
-}
-
 
 
 

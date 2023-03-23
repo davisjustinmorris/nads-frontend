@@ -403,6 +403,21 @@ font-weight: 500;
   font-style: italic;
 }
 
+.orderbus-input-items{
+  padding: 10px;
+  margin: 10px;
+}
+.orderbus-input-items div {
+  margin: 1rem;
+}
+.display-inputs-container{
+  padding: 10px;
+  margin: 10px;
+}
+.display-inputs-container div{
+   margin: 1rem; 
+}
+
 
 
 /*......order main end.............*/

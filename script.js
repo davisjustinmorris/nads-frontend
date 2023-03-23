@@ -22,19 +22,8 @@ $(document).ready(function () {
     });
 
     $(`#add-bus-form input[name='bus-captured-by-type']`).on('change', function () {
-        console.log(this);
-        if (!server_data.franchisee || !server_data.agency) {
-            console.log('dropdown data not set due to absence of franchisee or agency data');
-            return;
-        }
-        let data = '';
-        let data_set = this.value === 'franchisee' ? server_data.franchisee : server_data.agency;
-        data_set.forEach(function (loop_data) {
-            data += `<option value="${loop_data.id}">${loop_data.name}</option>`;
-        });
-        console.log('dropdown about to be populated by: ', data);
-        $(`#add-bus-form select[name='bus-captured-by-id']`).empty().append(data);
-
+        if (this.value === 'franchisee') $(`#add-bus-form select[name='bus-captured-by-id']`).show()
+        else $(`#add-bus-form select[name='bus-captured-by-id']`).hide();
     });
 
     $(`#add-client-form`).on('submit', handle_ajax_form);
@@ -72,11 +61,19 @@ function load_data() {
             console.log('view all data: ', data);
             if (data.success) {
                 server_data = data.payload;
-                if (data.payload.franchisee) load_franchisee_table(data.payload.franchisee);
-                if (data.payload.agency) load_agency_table(data.payload.agency);
-                if (data.payload.ad_client) load_ad_client_table(data.payload.ad_client);
-                if (data.payload.bus) load_bus_table(data.payload.bus);
-                if (data.payload.profit_ratio) load_profit_ratio_details(data.payload.profit_ratio);
+                if (server_data.franchisee) load_franchisee_table(server_data.franchisee);
+                if (server_data.agency) load_agency_table(server_data.agency);
+                if (server_data.ad_client) load_ad_client_table(server_data.ad_client);
+                if (server_data.bus) load_bus_table(server_data.bus);
+                if (server_data.profit_ratio) load_profit_ratio_details(server_data.profit_ratio);
+
+                if (server_data.franchisee) {
+                    let drop_down_data = '';
+                    server_data.franchisee.forEach(function (loop_data) {
+                        drop_down_data += `<option value="${loop_data.id}">${loop_data.name}</option>`;
+                    });
+                    $(`#add-bus-form select[name='bus-captured-by-id']`).empty().append(drop_down_data);
+                }
             }
         }
     });
@@ -128,12 +125,16 @@ function load_ad_client_table(data) {
 function load_bus_table(data) {
     let new_data = '';
     data.forEach(function (loop_data, i) {
+        let capturer_name = '';
+        if (loop_data.capturer_type === "franchisee")
+            capturer_name = " - " + server_data['map'][loop_data.capturer_type][loop_data.capturer_id];
+
         new_data += `
         <tr>
             <td><input type="checkbox" name="selected_rows" value="${loop_data.id}"></td>
             <td>${i+1}</td>
             <td>${loop_data.district}</td>
-            <td>${loop_data.capturer_type} - ${server_data['map'][loop_data.capturer_type][loop_data.capturer_id]}</td>
+            <td>${loop_data.capturer_type}${capturer_name}</td>
             <td>${loop_data.owner_name}</td>
             <td>${loop_data.bus_name}</td>
             <td>${loop_data.route_details}</td>

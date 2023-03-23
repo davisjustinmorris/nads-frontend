@@ -1,6 +1,4 @@
 
-
-
 *{
   margin:0;
   padding:0;
@@ -17,7 +15,6 @@ body{
 .container{
   position: relative;
   width: 100%;
-
 }
 .navigation{
   position: fixed;
@@ -82,10 +79,7 @@ color: #fff;
   white-space: nowrap;
 }
 
-/*
-*nav bar
-*/
-
+/*.........................................................................main.............................*/
 .main{
   position: absolute;
   width: calc(100% - 300px);
@@ -163,7 +157,6 @@ font-weight: 500;
   color: #03a9f4;
 }
 
-/*recent order form */
 .details{
   position: relative;
   width: 100%;
@@ -203,16 +196,10 @@ font-weight: 500;
   height: 100%;
   
 }
-.formula-container {
- 
-}
 .formula-container select{
   width: 200px;
   margin:20px 0;
   padding: 4px;
-}
-.franchisee-container{
-  
 }
 .franchisee-container select{
   width: 100%;
@@ -305,7 +292,125 @@ font-weight: 500;
 
 
 
-/*.................*/
+/*...................................................................order main start.............................................................*/
+  
+body > .order-main{
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: 0.5s;
+
+}
+.order-main.active{
+  width: calc(100% - 60px);
+  left: 60px;
+}
+.order-main .topbar{
+  width: 100%;
+  background: #ffffff;
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.toggle{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.toggle::before{
+  content:'\f0c9';
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 24px;
+  text-align: center;
+  color: #111;
+}
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+.search label{
+  position: relative;
+  width: 100%;
+}
+.search label input{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  outline: none;
+  border: 1px solid rgba(0,0,0,);
+}
+.search label .fa{
+  position: absolute;
+  left: 15px;
+  top: 4px;
+  color: rgba(0,0,0);
+}
+.user{
+  position: relative;
+  min-width: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #003147;
+}
+.cardBox{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap:20px;
+
+}
+.cardBox .card{
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cardBox .card .numbers{
+position: relative;
+font-size: 2rem;
+font-weight: 500;
+}
+.cardBox .card .cardName{
+  color: #999;
+}
+.cardBox .card .iconBox{
+  font-size: 2.5rem;
+  color: #03a9f4;
+}
+
+.order-list span h2{
+  color:#003147;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+}
+
+
+
+/*......order main end.............*/
+
+
+
+
+
 /*.....franchisee main........*/
 body > .franchisee-main{
   position: absolute;
@@ -438,6 +543,9 @@ font-weight: 500;
   cursor: pointer;
 }
 
+.franchisee-container{
+  margin: 1rem;
+}
 .franchisee-container span h2{
   color:#003147;
   font-size: 1.5rem;
@@ -445,13 +553,6 @@ font-weight: 500;
   font-family: 'Courier New', Courier, monospace;
   font-style: italic;
 }
-.franchisee-container table thead th{
- padding-left:40px;
- padding: 10px 0;
-}
-.franchisee-container table tbody td{
-  padding-left:40px;
- }
 
 /*  ad client main  */
 .add-client-main{
@@ -570,7 +671,7 @@ font-weight: 500;
 
 
 
-/*  main bus....................................................................................... */
+/* .......................................BUS-MAIN................................................ */
 
 .bus-main{
   position: absolute;
@@ -675,6 +776,15 @@ font-weight: 500;
 
 .edit-bus-container{
   width: 100%;
+  padding: 1rem;
+}
+.edit-bus-container span h2{
+  margin-bottom: 1.5rem;
+}
+.edit-bus-container form{
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
 }
 .edit-bus-container label{
   margin: 1rem;
@@ -705,122 +815,9 @@ font-weight: 500;
 }
 
 
-/*......order main  start ..........*/
-  
-body > .order-main{
-  position: absolute;
-  width: calc(100% - 300px);
-  left: 300px;
-  min-height: 100vh;
-  background: #f5f5f5;
-  transition: 0.5s;
-
-}
-.order-main.active{
-  width: calc(100% - 60px);
-  left: 60px;
-}
-.order-main .topbar{
-  width: 100%;
-  background: #ffffff;
-  height: 60px;
-  padding: 0 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-}
-.toggle{
-  position: relative;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-}
-.toggle::before{
-  content:'\f0c9';
-  font-family: fontAwesome;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  line-height: 60px;
-  font-size: 24px;
-  text-align: center;
-  color: #111;
-}
-.search {
-  position: relative;
-  width: 400px;
-  margin: 0 10px;
-}
-.search label{
-  position: relative;
-  width: 100%;
-}
-.search label input{
-  width: 100%;
-  height: 40px;
-  border-radius: 40px;
-  padding: 5px 20px;
-  padding-left: 35px;
-  outline: none;
-  border: 1px solid rgba(0,0,0,);
-}
-.search label .fa{
-  position: absolute;
-  left: 15px;
-  top: 4px;
-  color: rgba(0,0,0);
-}
-.user{
-  position: relative;
-  min-width: 50px;
-  overflow: hidden;
-  cursor: pointer;
-  color: #003147;
-}
-.cardBox{
-  position: relative;
-  width: 100%;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  grid-gap:20px;
-
-}
-.cardBox .card{
-  position: relative;
-  background: #fff;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-}
-.cardBox .card .numbers{
-position: relative;
-font-size: 2rem;
-font-weight: 500;
-}
-.cardBox .card .cardName{
-  color: #999;
-}
-.cardBox .card .iconBox{
-  font-size: 2.5rem;
-  color: #03a9f4;
-}
-
-.order-list span h2{
-  color:#003147;
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-family: 'Courier New', Courier, monospace;
-  font-style: italic;
-}
 
 
-
-/*......order main end.............*/
-
-/*agency main*/
+/*....................................................agency main.............................................*/
 
 body > .agency-main{
   position: absolute;
@@ -937,7 +934,7 @@ font-weight: 500;
 
 
 
-/*.....settings main/revenue formula......*/
+/*................................................settings main/revenue formula..................................*/
 body > .settings-main{
   position: absolute;
   width: calc(100% - 300px);
@@ -1058,7 +1055,10 @@ font-weight: 500;
 }
 .setting-formula-container .formula-normal form input{
   padding: 5px;
-  border-radius: 10px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color:transparent;
+  display: flex;
 
 }
 
@@ -1074,7 +1074,11 @@ font-weight: 500;
 }
 .setting-formula-container .formula-by-other-franchisee form input{
   padding: 5px;
-  border-radius: 10px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color:transparent;
+  display: flex;
+
 
 }
 .setting-formula-container .formula-ad-agency-company span h4{
@@ -1089,7 +1093,11 @@ font-weight: 500;
 }
 .setting-formula-container .formula-ad-agency-company form input{
   padding: 5px;
-  border-radius: 10px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color:transparent;
+  display: flex;
+
 
 }
 .edit-setting-container{
@@ -1133,6 +1141,7 @@ font-weight: 500;
   font-size: 1.5rem;
   font-weight: 800;
   font-family: 'Courier New', Courier, monospace;
+  padding-left: 1rem;
 }
 
 .revenue-order-form-table{
@@ -1141,6 +1150,29 @@ font-weight: 500;
   gap: 20px;
   padding: 50px;
 }
+.revenue-order-form-table .normal span h4{
+  margin-bottom: 1rem;
+}
+.revenue-order-form-table .other-Franchisee span h4{
+  margin-bottom: 1rem;
+}
+
+.revenue-order-form-table .company-Agency span h4{
+  margin-bottom: 1rem;
+}
+
+
+.revenue-order-form-table .normal div{
+     padding: 5px 0;    
+}
+.revenue-order-form-table .other-Franchisee div{
+  padding: 5px 0;    
+}
+.revenue-order-form-table .company-Agency div{
+  padding: 5px 0;    
+}
+
+
 
 
 
@@ -1229,56 +1261,11 @@ font-weight: 500;
 .buses-container table{
   overflow-x: scroll;
 }
+.user{
+  padding-right: 100px;
+}
 }
 
-.order-main{
-  width: 100%;
-  left: 0;
-}
-.order-main.active{
-  width:calc(100% - 0px);
-  left: 300px;
-}
-.franchisee-main{
-  width: 100%;
-  left: 0;
-}
-.franchisee-main.active{
-  width:calc(100% - 300px);
-  left: 300px;
-}
-.add-client-main{
-  width: 100%;
-  left: 0;
-}
-.add-client-main.active{
-  width:calc(100% - 300px);
-  left: 300px;
-}
-.bus-main{
-  width: 100%;
-  left: 0;
-}
-.bus-main.active{
-  width:calc(100% - 300px);
-  left: 300px;
-}
-.agency-main{
-  width: 100%;
-  left: 0;
-}
-.agency-main.active{
-  width:calc(100% - 300px);
-  left: 300px;
-}
-.settings-main{
-  width: 100%;
-  left: 0;
-}
-.settings-main.active{
-  width:calc(100% - 300px);
-  left: 300px;
-}
 
 
 @media (max-width:480px){

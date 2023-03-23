@@ -76,6 +76,7 @@ function load_data() {
                 if (data.payload.agency) load_agency_table(data.payload.agency);
                 if (data.payload.ad_client) load_ad_client_table(data.payload.ad_client);
                 if (data.payload.bus) load_bus_table(data.payload.bus);
+                if (data.payload.profit_ratio) load_profit_ratio_details(data.payload.profit_ratio);
             }
         }
     });
@@ -140,4 +141,10 @@ function load_bus_table(data) {
         </tr>`;
     });
     $(`#list-bus-table tbody`).empty().append(new_data);
+}
+
+function load_profit_ratio_details(data) {
+    data.forEach(function (loop_data, i) {
+        $(`#revenue-order-section span.${loop_data.formula_for}--${loop_data.for_user_type}`).text(loop_data.ratio);
+    })
 }

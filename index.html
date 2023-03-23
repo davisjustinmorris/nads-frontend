@@ -79,7 +79,7 @@
         </li>
         <li class="menu-agency">
           <a href="#">
-            <span class="icon"><i class="fa fa-cog" aria-hidden="false"></i></span>
+            <span class="icon"><i class="fa fa-building" aria-hidden="true"></i></span>
             <span class="title">COMPANY AS AGENCY</span>
           </a>
         </li>
@@ -109,7 +109,7 @@
       </div>
     </div>
     <div class="cardBox">
-      <div class="card">
+      <div class="card franchisee-main">
         <div class="">
           <div class="number">28</div>
           <div class="cardName">Franchisees</div>
@@ -150,8 +150,7 @@
     <div class="details">
       <div class="recentOrders">
         <div class="cardHeader">
-         <span><h2>ADD CLIENT</h2></span>
-          <a href="#" class="btn">view All</a>
+         <span><h2>CREATE ORDER</h2></span>
         </div>
         <div class="client-details">
           <div class="formula-container">
@@ -347,9 +346,9 @@
             </div>
             <div class="date">
               <label for="">From</label>
-              <input type="datetime-local">
+              <input type="date">
               <label for="">To</label>
-              <input type="datetime-local">
+              <input type="date">
             </div>
             <div class="total-charge">
               <label for="">Total Charge</label>
@@ -392,7 +391,7 @@
 <!--main end-->
  
 <!--order-main-->
-<div class="order-main" style="display: none;">
+ <div class="order-main" style="display: none;">
   <div class="topbar">
     <div class="toggle" onclick=" toggleMenu();"></div>
     <div class="user">
@@ -437,55 +436,335 @@
       </div>
     </div>
   </div>
-  <div class="edit-order-container">
-    <span><h2>ADD ORDER</h2></span>
-    <form action="" id="" method="post">
+  <div class="edite-order-container">
+    <span><h2>ORDER</h2></span>
+    <div class="order-input-item">
       <div class="">
-        <label for="">Agency Name</label>
-        <input type="text" name="name">
+        <span>AD Captured By</span>
+        <input type="radio" name="franchisee">
+        <label for="">Franchisee</label>
+        <input type="radio" name="Agency">
+        <label for="">Agency</label>
+        <select name="bus-captured-by-id">
+          <option value="bobby">bobby</option>
+          <option value="shihab">shihab</option>
+          <option value="biju-jony">BIJU JONY</option>
+          <option value="sharook-sandheep">sharook&sandheep</option>
+        </select>
       </div>
       <div class="">
-        <button type="submit">Submit</button>
+        <span>Filter By Region</span>
+        <input type="checkbox" name="All">
+        <label for="">All</label>
+        <input type="checkbox" name="Ernakulam">
+        <label for="">Ernakulam</label>
+        <input type="checkbox" name="Kannur">
+        <label for="">kannur</label>
+        <input type="checkbox" name="kollam">
+        <label for="">kollam</label>
+        <input type="checkbox" name="kottayam">
+        <label for="">kottayam</label>
+        <input type="checkbox" name="kozhikode">
+        <label for="">kozhikode</label>
+        <input type="checkbox" name="malappuram">
+        <label for="">Malappuram</label>
+        <input type="checkbox" name="kozhikode">
+        <label for="">kozhikode</label>
+        <input type="checkbox" name="palakkad">
+        <label for="">Palakkad</label>
+        <input type="checkbox" name="pathanamthitta">
+        <label for="">Pathanamthitta</label>
       </div>
-    </form>
-  </div>
+    </div>
+    <div class="list-bus-container">
+      <span><h2>LIST OF BUS</h2></span>
+      <table cellspacing="10">
+        <thead>
+          <tr>
+            <th scope="col">SELECT</th>
+            <th scope="col">NO.OF BUS</th>
+            <th scope="col">DISTRICT</th>
+            <th scope="col">AD CAPTURED BY</th>
+            <th scope="col">NAME OF BUS OWNER</th>
+            <th scope="col">BUS NAME</th>
+            <th scope="col">BUS ROUTE</th>
+            <th scope="col">VEHICLE NO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th><input type="checkbox" id="bus1" name="bus1" value="Bus"></th>
+            <td>1</td>
+            <td >ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>BAIJU</td>
+            <td>GEEBEES</td>
+            <td>KAKKANAD-FORT KOCHI</td>
+            <td>KL-06-E-1997</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus2" name="bus2" value="Bus"></th>
+            <td>2</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>NISHAD</td>
+            <td>GURUDEV</td>
+            <td>KALOOR-MOOVATTUPUZHA</td>
+            <td>KL-03-Y-2700</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus3" name="bus3" value="Bus"></th>
+            <td>3</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>SAJU JOSEPH</td>
+            <td>DEVI PRASADHAM</td>
+            <td>CHITTOOR-CHOTTANIKARA</td>
+            <td>KL-07-AP-8094</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus4" name="bus4" value="Bus"></th>
+            <td>4</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>PRASAD</td>
+            <td>DEVI PRASADHAM</td>
+            <td>CHITTOOR-CHERANALLOR-MATTANCHERY</td>
+            <td>KL-65-C-1572</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus5" name="bus5" value="Bus"></th>
+            <td>5</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>AJAYAKUMAR</td>
+            <td>RAO'S</td>
+            <td>CHERANALOR-THRIPUNITHURA</td>
+            <td>KL-40-A-8765</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus6" name="bus6" value="Bus"></th>
+            <td>6</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>ABDUL SALAM</td>
+            <td>SADHIKA</td>
+            <td>ERNAKULAM-PARAVOOR</td>
+            <td>KL-42-Q-4567</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus7" name="bus7" value="Bus"></th>
+            <td>7</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>ANSAR ALI</td>
+            <td>AJMEER</td>
+            <td>PARAVOOR-EDAPALLY-VAITTILA</td>
+            <td>KL-08-AF-7299</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus8" name="bus8" value="Bus"></th>
+            <td>8</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>SURESH</td>
+            <td>AJMEER</td>
+            <td>CHERANALLOR-THEAVARA FURRY</td>
+            <td>KL-07-BF-7287</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus9" name="bus9" value="Bus"></th>
+            <td>9</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>SUHARA</td>
+            <td>AMMANATH</td>
+            <td>CHATHANADU-KALLOR</td>
+            <td>KL-17-E-1896</td>
+          </tr>
+          <tr>
+            <th><input type="checkbox" id="bus10" name="bus10" value="Bus"></th>
+            <td>10</td>
+            <td>ERNAKULAM</td>
+            <td>BOBBY</td>
+            <td>KHALID</td>
+            <td>ABAABEEL</td>
+            <td>PARAVOOR-KALLOR</td>
+            <td>KL-23-A-7929</td>
+          </tr>
 
-  <div class="order-list">
-    <span><h2>LIST OF order</h2></span>
-    <table id="list-order-table">
-      <thead>
-        <tr>
-          <th>Serial NO</th>
-          <th>Agency Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>A</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>B</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>c</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>D</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td></td>
-        </tr>
       </tbody>
     </table>
-  </div>
-  
-      
+    </div>
+    <div class="orderbus-input-items">
+      <div class="">
+        <span>Ad Duration</span>
+        <input type="radio" name="15s">
+        <label for="">15s</label>
+        <input type="radio" name="30s">
+        <label for="">30s</label>
+        <input type="radio" name="45s">
+        <label for="">45s</label>
+        <input type="radio" name="60s">
+        <label for="">60s</label>
+      </div>
+      <div class="">
+        <label for="">start Time</label>
+        <input type="date">
+        <label for="">End Time</label>
+        <input type="date">
+      </div>
+      <div class="">
+        <label for="">Advertisement Name</label>
+        <input type="text">
+      </div> 
+    </div>
+    <div class="display-inputs-container">
+      <div class="">
+        <label for="">No.Of Bus</label>
+        <span name="no-of-bus">50</span>
+      </div>
+      <div class="">
+        <label for="">No.Of Days</label>
+        <span name="no-of-days">50</span>
+      </div>
+     <div class="">
+      <label for="">Ad Duration</label>
+      <span name="ad-duration">50</span>
+     </div>
+      <div class="">
+        <label for="">Total Rate</label>
+        <span name="total-charge">70000</span>
+      </div>  
+    </div>
+    <div class="revenue-order-form">
+      <div class="">
+        <span><h2>CURRENT TARIFF RATE</h2></span>
+      </div>
+      <div class="revenue-order-form-table">
+        <div class="normal">
+          <span><h4>NORMAL</h4></span>
+           <table cellspacing="10px">
+            <tbody>
+              <tr>
+                <td>company share</td>
+                <td>40%</td>
+                <td>2000/-</td>
+              </tr>
+              <tr>
+                <td>Bus owner fee</td>
+                <td>9%</td>
+                <td>450/-</td>
+              </tr>
+              <tr>
+                <td>Bus Organisation</td>
+                <td>1%</td>
+                <td>50/-</td>
+              </tr>
+                <td>Franchisee Share</td>
+                <td>50%</td>
+                <td>2500/-</td>
+              </tr>
+            </tbody>
+           </table>
+        </div>
+        <div class="other-Franchisee">
+          <span><h4>BY OTHER FRANCHISEE</h4></span>
+          <table cellspacing="10px">
+            <tbody>
+              <tr>
+                <td>company share</td>
+                <td>40%</td>
+                <td>2000/-</td>
+              </tr>
+              <tr>
+                <td>Bus owner fee</td>
+                <td>6%</td>
+                <td>300/-</td>
+              </tr>
+              <tr>
+                <td>Bus Organisation</td>
+                <td>1%</td>
+                <td>50/-</td>
+              </tr>
+              <tr>
+                <td>Bus Franchisee</td>
+                <td>13%</td>
+                <td>650/-</td>
+              </tr>
+              <tr>
+                <td>AD Franchisee</td>
+                <td>30%</td>
+                <td>1500/-</td>
+              </tr>
+              <tr>
+                <td>serverCharge</td>
+                <td>10%</td>
+                <td>500/-</td>
+              </tr>
+              
+            </tbody>
+           </table>
+        </div>
+        <div class="company-Agency">
+          <span><h4>AD AGENCY/COMPANY</h4></span>
+          <table cellspacing="10px">
+            <tbody>
+              <tr>
+                <td>company share</td>
+                <td>60%</td>
+                <td>3000/-</td>
+              </tr>
+              <tr>
+                <td>Bus owner fee</td>
+                <td>6%</td>
+                <td>300/-</td>
+              </tr>
+              <tr>
+                <td>Bus Organisation</td>
+                <td>0.68%</td>
+                <td>34/-</td>
+              </tr>
+              <tr>
+                <td>Franchisee Share</td>
+                <td>13.32%</td>
+                <td>666/-</td>
+              </tr>
+              <tr>
+                <td>Ad Agency</td>
+                <td>50%</td>
+                <td>2500/-</td>
+              </tr>
+            </tbody>
+           </table>
+     </div>
+     <div class="final-calculation-container">
+      <div class="">
+        <label for="">Discount</label>
+        <input type="text" placeholder="Enter Discount" >
+      </div>
+      <div class="">
+        <label for="">Total Amount Payable</label>
+        <span>70,000rs</span>
+      </div>
+      <div class="">
+        <label for="">Enter Advance Amount :</label>
+        <input type="text">
+      </div>
+      <div class="">
+        <label for="">GST Inclusive</label>
+        <input type="checkbox" name="GST" id="">
+      </div>
+     </div>
 </div>
+
+
+
+
+
+</div>
+  </div>
+ </div>
 
   <!--franchisee main-->
   <div class="franchisee-main" style="display: none;">
@@ -555,13 +834,11 @@
         <div class="">
           <button>Submit</button>
         </div>
-
-
       </form>
     </div>
     <div class="franchisee-container">
       <span><h2>LIST OF FRANCHISEES</h2></span>
-      <table id="list-franchisee-table">
+      <table id="list-franchisee-table" cellspacing="10">
           <thead>
             <tr>
               <th scope="col">SL NO</th>
@@ -707,7 +984,7 @@
     </div>
     <div class="add-client-list-details">
       <h2>LIST OF CLIENTS</h2>
-      <table id="list-ad-client-table">
+      <table id="list-ad-client-table" cellspacing="10">
         <thead>
         <tr>
           <th scope="col">SELECT</th>
@@ -870,7 +1147,7 @@
     </div>
     <div class="bus-container">
       <span><h2>LIST OF BUSES</h2></span>
-      <table>
+      <table cellspacing="10">
           <thead>
             <tr>
               <th scope="col">SELECT</th>
@@ -1054,7 +1331,7 @@
 
     <div class="agency-list">
       <span><h2>LIST OF AGENCY</h2></span>
-      <table id="list-agency-table">
+      <table id="list-agency-table" cellspacing="10">
         <thead>
           <tr>
             <th>Serial NO</th>

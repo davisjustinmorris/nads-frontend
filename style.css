@@ -180,6 +180,16 @@ font-weight: 500;
  margin: 1rem 0;
 }
 
+.orderbus-input-items div {
+  margin: 0.5rem;
+}
+.display-inputs-container div{
+  margin: 1rem;
+}
+.final-calculation-container div{
+  margin: 1rem;
+}
+
 /*...................................................................order main start.............................................................*/
   
 body > .order-main{
@@ -446,10 +456,18 @@ font-weight: 500;
   background-color: #03a9f4;
   color: #fff;
   width: 100px;
-  padding: 7px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 50px;
   border: none;
   cursor: pointer;
+  transition: 0.5s;
+  
+}
+.Add-franchise-details form  button:hover {
+  color:#03a9f4;
+  background-color: #fff;
+  border:1px solid #03a9f4; 
+
 }
 
 .franchisee-container{
@@ -1027,6 +1045,12 @@ font-weight: 500;
 .cardBox .card .iconBox{
   font-size: 2.5rem;
   color: #03a9f4;
+}
+.company-revenue-container span h2{
+  margin: 1.5rem;
+}
+.company-revenue-container div{
+  margin: 1rem;
 }
 
 /*...................................................................end of company revenue main.................................*/

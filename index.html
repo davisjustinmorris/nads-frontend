@@ -1349,7 +1349,6 @@
     
         
   </div>
-
      <!--company-revenue-main-->
   <div class="company-revenue-main" style="display: none;">
       <div class="topbar">
@@ -1394,6 +1393,38 @@
           <div class="iconBox">
             <i class="fa fa-address-book" aria-hidden="true"></i>
           </div>
+        </div>
+      </div>
+      <div class="company-revenue-container">
+        <span><h2>COMPANY REVENUE CALCULATION</h2></span>
+        <div class="">
+          <label for="">Ad Name</label>
+          <input type="text" name="company-ad-name">
+        </div>
+        <div class="">
+          <label for="">Client Name</label>
+          <input type="text" name="company-clientName">
+        </div>
+        <div class="">
+          <label for="">From</label>
+          <input type="date" name="date">
+          <label for="">To</label>
+          <input type="date" name="date">
+        </div>
+        <div class="">
+          <label for="">Amount</label>
+          <input type="text" name="company-Amount">
+        </div>
+        <div class="">
+          <span class="">Payment Status</span>
+          <input type="checkbox" name="company-due">
+          <label for="">Due</label>
+          <input type="checkbox" name="company-paid">
+          <label for="">Paid</label>
+        </div>
+        <div class="">
+          <label for="">Invoice NO</label>
+          <input type="text" name="company-invoiceNumber">
         </div>
       </div>
   </div>
@@ -1807,7 +1838,7 @@
     let main = document.querySelector('.main');
     let orderMain = document.querySelector('.order-main');
     let franchiseeMain = document.querySelector('.franchisee-main');
-    let addClientMain = document.querySelector('.add-client-main')
+    let addClientMain = document.querySelector('.add-client-main');
     let busMain = document.querySelector('.bus-main');
     let organisationMain = document.querySelector('.organisation-main');
     let gstMain = document.querySelector('.gst-main');
@@ -1815,7 +1846,6 @@
     let serverChargeMain = document.querySelector('.server-charge-main');
     let agencyMain = document.querySelector('.agency-main');
     let settingsMain = document.querySelector('.settings-main');
-
 
     toggle.classList.toggle('active');
     navigation.classList.toggle('active');

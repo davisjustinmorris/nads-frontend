@@ -146,40 +146,34 @@
         </div>
       </div>
     </div>
-    <div class="edite-order-container">
-      <span><h2>ORDER</h2></span>
+    <form id="create-order-form" class="edite-order-container">
+      <h2>ORDER</h2>
       <div class="order-input-item">
         <div class="">
           <span>Add Bus By</span>
-          <input type="radio" name="franchisee">
-          <label for="">Franchisee</label>
-          <input type="radio" name="Agency">
-          <label for="">Agency</label>
-          <select name="bus-captured-by-id">
+          <label><input type="radio" name="ad-captured-by-type" value="franchisee" checked>Franchisee</label>
+          <label><input type="radio" name="ad-captured-by-type" value="agency">Agency</label>
+          <select name="ad-captured-by-id">
             <option value="bobby">bobby</option>
             <option value="shihab">shihab</option>
             <option value="biju-jony">BIJU JONY</option>
             <option value="sharook-sandheep">sharook&sandheep</option>
           </select>
         </div>
-        <div class="">
+        <div class="district-filters">
+<!--          put input inside label, remove "for" from label-->
           <span>Filter By Region</span>
-          <input type="checkbox" name="All">
+          <input type="checkbox" name="all">
           <label for="">All</label>
-          <input type="checkbox" name="Ernakulam">
-          <label for="">Ernakulam</label>
-          <input type="checkbox" name="Kannur">
-          <label for="">kannur</label>
-          <input type="checkbox" name="kollam">
-          <label for="">kollam</label>
+          <label><input type="checkbox" name="ernakulam">Ernakulam</label>
+          <label><input type="checkbox" name="kannur">kannur</label>
+          <label><input type="checkbox" name="kollam">kollam</label>
           <input type="checkbox" name="kottayam">
           <label for="">kottayam</label>
           <input type="checkbox" name="kozhikode">
           <label for="">kozhikode</label>
           <input type="checkbox" name="malappuram">
-          <label for="">Malappuram</label>
-          <input type="checkbox" name="kozhikode">
-          <label for="">kozhikode</label>
+          <label for="">malappuram</label>
           <input type="checkbox" name="palakkad">
           <label for="">Palakkad</label>
           <input type="checkbox" name="pathanamthitta">
@@ -309,24 +303,25 @@
       <div class="orderbus-input-items">
         <div class="">
           <span>Ad Duration</span>
-          <input type="radio" name="15s">
+          <input type="radio" name="ad-duration" value="15" checked>
           <label for="">15s</label>
-          <input type="radio" name="30s">
+          <input type="radio" name="ad-duration" value="30">
           <label for="">30s</label>
-          <input type="radio" name="45s">
+          <input type="radio" name="ad-duration" value="45">
           <label for="">45s</label>
-          <input type="radio" name="60s">
+          <input type="radio" name="ad-duration" value="60">
           <label for="">60s</label>
         </div>
         <div class="">
           <label for="">start Time</label>
-          <input type="date">
+          <input type="date" name="ad-start-date">
           <label for="">End Time</label>
-          <input type="date">
+          <input type="date" name="ad-end-date">
         </div>
         <div class="">
           <label for="">Advertisement Name</label>
           <input type="text">
+          <button name="calculate-rate" type="button">Calculate</button>
         </div>
       </div>
       <div class="display-inputs-container">
@@ -476,7 +471,7 @@
       </div>
   
   </div>
-    </div>
+    </form>
 
   </div>
 <!--main end-->

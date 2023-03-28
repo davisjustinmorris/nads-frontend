@@ -189,6 +189,9 @@ font-weight: 500;
 .final-calculation-container div{
   margin: 1rem;
 }
+.list-bus-container {
+  overflow-x: scroll;
+}
 
 /*...................................................................order main start.............................................................*/
   
@@ -772,8 +775,11 @@ font-weight: 500;
    margin: 10rem;
   background-color: #003147;
 }
+.bus-main > .bus-container{
+  overflow-x: scroll;
+}
 
-.edit-bus-container div button{
+ .bus-main > .edit-bus-container div button{
   background-color: #03a9f4;
   padding: 10px;
   width: 100px;
@@ -1537,7 +1543,7 @@ font-weight: 500;
     left: 0;
   }
   .order-main.active{
-    width:calc(100% - 0px);
+    width:calc(100% - 300px);
     left: 300px;
   }
   .franchisee-main{
@@ -1564,6 +1570,39 @@ font-weight: 500;
     width:calc(100% - 300px);
     left: 300px;
   }
+  .organisation-main{
+    width: 100%;
+    left: 0;
+  }
+  .organisation-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+  .gst-main{
+    width: 100%;
+    left: 0;
+  }
+  .gst-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+  .company-revenue-main{
+    width: 100%;
+    left: 0;
+  }
+  .company-revenue-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+  .server-charge-main{
+    width: 100%;
+    left: 0;
+  }
+  .server-charge-main.active{
+    width:calc(100% - 300px);
+    left: 300px;
+  }
+
   .agency-main{
     width: 100%;
     left: 0;
@@ -1598,6 +1637,7 @@ font-weight: 500;
 .user{
   padding-right: 100px;
 }
+
 }
 
 
@@ -1704,9 +1744,10 @@ l
 
   .dynamic-column .Agency-share input{
     width: 100%;
-    padding:5px ;
+    padding:5px;
   }
   .user{
     padding-right: 50px;
   }
+
  }

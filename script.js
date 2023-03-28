@@ -6,12 +6,12 @@ let link_main_class_names = {
     "menu-bus": "bus-main",
     "menu-settings": "settings-main",
     "menu-agency": "agency-main",
-    "menu-add-client-main":"add-client-main",
-    "menu-order":"order-main",
-    "menu-organisation":"organisation-main",
-    "menu-gst":"gst-main",
-    "menu-companyRevenue":"company-revenue-main",
-    "menu-serverCharge":"server-charge-main"
+    "menu-add-client-main": "add-client-main",
+    "menu-order": "order-main",
+    "menu-organisation": "organisation-main",
+    "menu-gst": "gst-main",
+    "menu-companyRevenue": "company-revenue-main",
+    "menu-serverCharge": "server-charge-main"
 }
 
 let server_data;
@@ -160,7 +160,7 @@ function load_agency_table(data) {
 
 function create_order__calculate () {
     // check duration radio button status
-    let duration = $(`#create-order-form input[name='ad-duration']`).val();
+    let duration = $(`#create-order-form input[name='ad-duration']:checked`).val();
     if (!duration) { alert('invalid duration value! something went wrong!'); return; }
 
     // check start date and end date values
@@ -189,21 +189,47 @@ function create_order__calculate () {
         return;
     }
 
+    let duration_rate_map = {
+        15: 5000,
+        30: 7000,
+        45: 9000,
+        60: 11000
+    };
     // since all selected values are proper, proceed with the calculations
     $(`#create-order-form .display-inputs-container span[name="no-of-bus"]`).text(selected_bus_ids.length);
     $(`#create-order-form .display-inputs-container span[name="no-of-days"]`).text(ad_days_count);
     $(`#create-order-form .display-inputs-container span[name="ad-duration"]`).text(duration);
-    $(`#create-order-form .display-inputs-container span[name="total-charge"]`).text('1,00,000');
+    $(`#create-order-form .display-inputs-container span[name="total-charge"]`).text(
+        duration_rate_map[duration] * selected_bus_ids.length * ad_days_count
+    );
 
     // proceed with formulas
-    let ad_captured_by_user_type = $(`#create-order-form input[name="ad-captured-by-type"]`).val();
-    let ad_captured_by_user_id = $(`#create-order-form input[name="ad-captured-by-id"]`).val();
-    let distinct_bus_franchisee = [];
-    server_data.bus.forEach(function (loop_data) {
-        if (selected_bus_ids.includes(loop_data.id)){
+    console.log('selected_bus_ids: ', selected_bus_ids);
+    $(`#create-order-form .order-form-table > div`).hide();
+    let ad_captured_by_user_type = $(`#create-order-form input[name="ad-captured-by-type"]:checked`).val();
+    let ad_captured_by_user_id = $(`#create-order-form select[name="ad-captured-by-id"]`).val();
+    if (ad_captured_by_user_type === 'franchisee') {
+        console.log('is captured by fr detected');
+        let count_normal = 0;
+        let count_other = 0;
 
-        }
-    });
+        server_data.bus.forEach(function (loop_bus_data) {
+            if (selected_bus_ids.includes(String(loop_bus_data.id))){
+                console.log("capturer_id: ", loop_bus_data.capturer_id);
+                console.log("ad_captured_by_user_id: ", ad_captured_by_user_id);
+                if (String(loop_bus_data.capturer_id) === ad_captured_by_user_id)
+                    count_normal = count_normal + 1;
+                else count_other = count_other + 1;
+            }
+        });
+
+        if (count_normal) $(`#create-order-form .order-form-table .normal`).show();
+        if (count_other) $(`#create-order-form .order-form-table .other-Franchisee`).show();
+    } else {
+        console.log('is captured by ag detected');
+
+        $(`#create-order-form .order-form-table .company-Agency`).show();
+    }
 }
 
 function load_ad_client_table(data) {

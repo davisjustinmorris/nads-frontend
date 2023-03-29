@@ -276,3 +276,5 @@ function load_profit_ratio_details(data) {
         $(`#revenue-order-section span.${loop_data.formula_for}--${loop_data.for_user_type}`).text(loop_data.ratio);
     })
 }
+
+

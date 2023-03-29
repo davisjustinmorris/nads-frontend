@@ -575,6 +575,10 @@
                   <button type="submit">Submit</button>
                 </div>
                 <div class="">
+                  <label for="">Invoice Number :</label>
+                  <span style="color: red;">Pending</span>
+                </div>
+                <div class="">
                   <label for="">Current Status :</label>
                   <span style="color: red;">Pending</span>
                 </div>
@@ -1344,35 +1348,39 @@
     </div>
     <div class="gst-container">
       <span><h2>GST CALCULATION</h2></span>
-      <div class="">
-        <label for="">Ad Name</label>
-        <input type="text" name="ad-name">
-      </div>
-      <div class="">
-        <label for="">Client Name</label>
-        <input type="text" name="clientName">
-      </div>
-      <div class="">
-        <label for="">From</label>
-        <input type="date" name="date">
-        <label for="">To</label>
-        <input type="date" name="date">
-      </div>
-      <div class="">
-        <label for="">GST Amount</label>
-        <input type="text" name="gstAmount">
-      </div>
-      <div class="">
-        <span class="">Payment Status</span>
-        <input type="checkbox" name="due">
-        <label for="">Due</label>
-        <input type="checkbox" name="paid">
-        <label for="">Paid</label>
-      </div>
-      <div class="">
-        <label for="">Invoice NO</label>
-        <input type="text" name="invoiceNumber">
-      </div>
+      <table cellspacing="10">
+        <thead>
+          <tr>
+            <th>SL.NO</th>
+            <th>CLIENT NAME</th>
+            <th>AD NAME</th>
+            <th>TOTAL AMOUNT<br>(Inclusive/Exclusive Gst Amount)</th>
+            <th>GST AMOUNT</th>
+            <th>PAID</th>
+            <th>PAYABLE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+             <td>1</td>
+             <td>SHAFI</td>
+             <td>REPO</td>
+             <td>5000(INCLUSIVE)</td>
+             <td>900</td>
+             <td>PAID(generate invoice number if Paid)</td>
+             <td>NON-PAYABLE</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>BOBBY</td>
+            <td>REPO</td>
+            <td>7000(EXCLUSIVE)</td>
+            <td>5900</td>
+            <td>Due</td>
+            <td>PAYABLE</td>
+         </tr>
+        </tbody>
+      </table>
     </div>
     
         

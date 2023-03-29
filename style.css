@@ -1272,6 +1272,23 @@ font-weight: 500;
   font-style: italic;
 }
 
+.agency-main .edit-bus-container form button {
+  background-color: #03a9f4;
+  color: #fff;
+  width: 70px;
+  padding: 10px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s;
+  
+}
+.agency-main .edit-bus-container form  button:hover {
+  color:#03a9f4;
+  background-color: #fff;
+  border:1px solid #03a9f4; 
+
+}
 
 
 

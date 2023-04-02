@@ -15,7 +15,7 @@ let link_main_class_names = {
 }
 
 let server_data;
-let select_option_map = {'franchisee': '', 'agency': ''};
+let select_option_map = {'franchisee': '', 'agency': '', 'client': ''};
 
 $(document).ready(function () {
     $(`#add-client-form`).on('submit', handle_ajax_form);
@@ -23,6 +23,7 @@ $(document).ready(function () {
     $(`#add-agency-form`).on('submit', handle_ajax_form);
     $(`#add-bus-form`).on('submit', handle_ajax_form);
     $(`#edit-settings-form`).on('submit', handle_ajax_form);
+    $(`#create-order-form`).on('submit', handle_ajax_form);
 
     load_data();
     attach_listeners();
@@ -59,6 +60,7 @@ function load_data() {
                 if (server_data.ad_client) load_ad_client_table(server_data.ad_client);
                 if (server_data.bus) load_bus_table(server_data.bus);
                 if (server_data.profit_ratio) load_profit_ratio_details(server_data.profit_ratio);
+                if (server_data.orders) load_orders(server_data.orders);
 
                 if (server_data.franchisee) {
                     server_data.franchisee.forEach(function (loop_data) {
@@ -70,9 +72,15 @@ function load_data() {
                         select_option_map.agency += `<option value="${loop_data.id}">${loop_data.name}</option>`;
                     });
                 }
+                if (server_data.ad_client) {
+                    server_data.ad_client.forEach(function (loop_data) {
+                        select_option_map.client += `<option value="${loop_data.id}">${loop_data.name}</option>`;
+                    });
+                }
 
                 $(`#add-bus-form select[name='bus-captured-by-id']`).empty().append(select_option_map.franchisee);
                 $(`#create-order-form select[name='ad-captured-by-id']`).empty().append(select_option_map.franchisee);
+                $(`#create-order-form select[name='client-id']`).empty().append(select_option_map.client);
             }
         }
     });
@@ -101,7 +109,7 @@ function attach_listeners() {
 
     $(`#create-order-form button[name="calculate-rate"]`).on('click', create_order__calculate);
 
-    // add bus district selection filters
+    // add bus >> district selection filters
     $(`#create-order-form .order-input-item .district-filters input[type='checkbox']`).on('change', function () {
         console.log(this.name);
         console.log(this.checked);
@@ -129,6 +137,13 @@ function attach_listeners() {
             });
         }
     })
+
+    // add order >> final calculation button
+    $(`#create-order-form .final-calculation-container button.btn-calc`).on('click', function () {
+        let existing_calc = create_order__calculate();
+        if (existing_calc === false) return;
+        $(`#create-order-form .final-calculation-container > div:nth-child(2) > :nth-child(2)`).text(existing_calc);
+    });
 }
 
 function load_franchisee_table(data) {
@@ -158,10 +173,14 @@ function load_agency_table(data) {
     $(`#list-agency-table tbody`).empty().append(new_data);
 }
 
-function create_order__calculate () {
+function create_order__calculate() {
     // check duration radio button status
     let duration = $(`#create-order-form input[name='ad-duration']:checked`).val();
-    if (!duration) { alert('invalid duration value! something went wrong!'); return; }
+    if (!duration) {
+        alert('invalid duration value! something went wrong!');
+        return false;
+    }
+    // force check of ad name
 
     // check start date and end date values
     let ad_days_count;
@@ -169,12 +188,12 @@ function create_order__calculate () {
     let end_date = $(`#create-order-form input[name='ad-end-date']`).val();
     if (!end_date || !start_date) {
         alert('start date and end date required!');
-        return;
+        return false;
     } else {
-        ad_days_count = (new Date(end_date) - new Date(start_date))/(1000*60*60*24);
+        ad_days_count = (new Date(end_date) - new Date(start_date)) / (1000 * 60 * 60 * 24);
         if (ad_days_count < 1) {
             alert('difference in start day and end day should at least be one');
-            return;
+            return false;
         }
     }
 
@@ -186,22 +205,22 @@ function create_order__calculate () {
     });
     if (selected_bus_ids.length === 0) {
         alert('no buses selected!');
-        return;
+        return false;
     }
 
     let duration_rate_map = {
-        15: 5000,
-        30: 7000,
-        45: 9000,
-        60: 11000
+        15: 166,
+        30: 233,
+        45: 300,
+        60: 366
     };
     // since all selected values are proper, proceed with the calculations
     $(`#create-order-form .display-inputs-container span[name="no-of-bus"]`).text(selected_bus_ids.length);
     $(`#create-order-form .display-inputs-container span[name="no-of-days"]`).text(ad_days_count);
     $(`#create-order-form .display-inputs-container span[name="ad-duration"]`).text(duration);
-    $(`#create-order-form .display-inputs-container span[name="total-charge"]`).text(
-        duration_rate_map[duration] * selected_bus_ids.length * ad_days_count
-    );
+    let ad_total_rate = duration_rate_map[duration] * selected_bus_ids.length * ad_days_count;
+    $(`#create-order-form .display-inputs-container span[name="total-charge"]`).text(ad_total_rate);
+    $(`#create-order-form .final-calculation-container input[name="gst-amount"]`).val(0);
 
     // proceed with formulas
     console.log('selected_bus_ids: ', selected_bus_ids);
@@ -214,7 +233,7 @@ function create_order__calculate () {
         let count_other = 0;
 
         server_data.bus.forEach(function (loop_bus_data) {
-            if (selected_bus_ids.includes(String(loop_bus_data.id))){
+            if (selected_bus_ids.includes(String(loop_bus_data.id))) {
                 console.log("capturer_id: ", loop_bus_data.capturer_id);
                 console.log("ad_captured_by_user_id: ", ad_captured_by_user_id);
                 if (String(loop_bus_data.capturer_id) === ad_captured_by_user_id)
@@ -277,4 +296,86 @@ function load_profit_ratio_details(data) {
     })
 }
 
+function load_orders(data) {
+    let output_html = '';
+    let mark_payment_complete_stub = `
+        <div class="">
+          <button type="button" class="mark-complete" onclick="on_click__orders_mark_paid(this)" style="width: 10rem; background-color: green;">Mark Payment Complete</button>
+        </div>`;
+    let record_payment_stub = `
+        <div class="">
+          <label for="">Record Payment</label>
+          <input type="text" name="record-payment" placeholder="Amount">
+        </div>
+        <div class="">
+          <label for="">Invoice Number :</label>
+          <input type="text" name="invoice-number" placeholder="invoice number (optional)">
+        </div>
+        <div class="">
+          <button onclick="on_click__orders_record_payment(this)" style="width: 10rem;">Record Payment</button>
+        </div>`;
 
+    for (const key in data) {
+        const loop_data = data[key];
+        output_html += `
+        <details>
+            <summary>
+                <div class="summary-container">
+                    <input type="hidden" name="order-id" value="${loop_data['id']}">
+                    <div class="">
+                      <label for="">Ad Name :</label>
+                      <span name="ad-name">${loop_data['ad-name']}</span>
+                    </div>
+                    <div class="">
+                      <label for="">Client Name :</label>
+                      <span name="client-name">${loop_data['client-name']}</span>
+                    </div>
+                    <div class="">
+                      <label for="">Payment Received :</label>
+                      <span>${loop_data['payment-received']} / ${loop_data['payable-amount']}</span>
+                    </div>
+                    ${loop_data['is-payment-complete']?'':record_payment_stub}
+                    <div class="">
+                      <label>Current Status :</label>
+                      <span class="pending">${loop_data['is-payment-complete']?'Payment Complete':'Pending'}</span>
+                    </div>
+                    ${loop_data['is-payment-complete']?'':mark_payment_complete_stub}
+                  </div>  
+            </summary>
+        </details>`;
+    };
+    $('.order-main .order-detail-container').empty().append(output_html);
+}
+
+function on_click__orders_record_payment(context) {
+    console.log('called: on_click__orders_mark_paid');
+    let payment_value = $(context).parent().parent().find('input[name="record-payment"]').val();
+    let order_id = $(context).parent().parent().find('input[name="order-id"]').val();
+    $.ajax({
+        url: 'http://' + server_address + '/api/order/recordPayment',
+        type: 'post',
+        contentType: 'application/json',
+        data: JSON.stringify({payment_value, order_id}),
+        success: function (data) {
+            console.log(data);
+            if (data.success) location.reload();
+            else if (data.error) alert(data.error);
+        }
+    });
+}
+
+function on_click__orders_mark_paid(context) {
+    console.log('called: on_click__orders_mark_paid');
+    let order_id = $(context).parent().parent().find('input[name="order-id"]').val();
+    $.ajax({
+        url: 'http://' + server_address + '/api/order/markComplete',
+        type: 'post',
+        contentType: 'application/json',
+        data: JSON.stringify({order_id}),
+        success: function (data) {
+            console.log(data);
+            if (data.success) location.reload();
+            else if (data.error) alert(data.error);
+        }
+    });
+}

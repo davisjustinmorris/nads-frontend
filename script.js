@@ -32,6 +32,8 @@ $(document).ready(function () {
 function handle_ajax_form(e) {
     e.preventDefault();
     console.log('invoked: ajax form for: ', e.currentTarget.id);
+    if (e.currentTarget.id === 'create-order-form')
+        if (!on_click__orders__final_calc_button()) return;
 
     if (e.currentTarget.action.split('/api').length !== 2) return;
 
@@ -139,11 +141,7 @@ function attach_listeners() {
     })
 
     // add order >> final calculation button
-    $(`#create-order-form .final-calculation-container button.btn-calc`).on('click', function () {
-        let existing_calc = create_order__calculate();
-        if (existing_calc === false) return;
-        $(`#create-order-form .final-calculation-container > div:nth-child(2) > :nth-child(2)`).text(existing_calc);
-    });
+    $(`#create-order-form .final-calculation-container button.btn-calc`).on('click', on_click__orders__final_calc_button);
 }
 
 function load_franchisee_table(data) {
@@ -156,6 +154,7 @@ function load_franchisee_table(data) {
                     <td>${loop_data.name}</td>
                     <td>${loop_data.phone}</td>
                     <td>${loop_data.address}</td>
+                    <td><a href="#" onclick="on_click__view_payments_franchisee(this, ${loop_data.id})">View Payments</a></td>
                 </tr>`;
     });
     $(`#list-franchisee-table tbody`).empty().append(new_data);
@@ -168,6 +167,7 @@ function load_agency_table(data) {
         <tr>
             <td>${i + 1}</td>
             <td>${loop_data.name}</td>
+            <td><a href="#" onclick="on_click__view_payments_agency(this, ${loop_data.id})">View Payments</a></td>
         </tr>`;
     });
     $(`#list-agency-table tbody`).empty().append(new_data);
@@ -251,6 +251,13 @@ function create_order__calculate() {
     }
 }
 
+function on_click__orders__final_calc_button() {
+    let existing_calc = create_order__calculate();
+    if (existing_calc === false) return false;
+    $(`#create-order-form .final-calculation-container > div:nth-child(2) > :nth-child(2)`).text(existing_calc);
+    return true;
+}
+
 function load_ad_client_table(data) {
     let new_data = '';
     data.forEach(function (loop_data, i) {
@@ -284,10 +291,13 @@ function load_bus_table(data) {
             <td>${loop_data.bus_name}</td>
             <td>${loop_data.route_details}</td>
             <td>${loop_data.registration_number}</td>
+            <td><a href="#" onclick="on_click__view_payments_bus(this, ${loop_data.id})">View Payments</a></td>
         </tr>`;
     });
     $(`#list-bus-table tbody`).empty().append(new_data);
     $(`#create-order-form .list-bus-container tbody`).empty().append(new_data);
+    $(`#create-order-form .list-bus-container tbody td:last-child`).remove();
+    return new_data;
 }
 
 function load_profit_ratio_details(data) {
@@ -376,6 +386,70 @@ function on_click__orders_mark_paid(context) {
             console.log(data);
             if (data.success) location.reload();
             else if (data.error) alert(data.error);
+        }
+    });
+}
+
+function on_click__view_payments_bus(context, bus_id) {
+    $('.bus-container > span > h2').text('LIST OF BUS PAYMENTS');
+    $('.bus-container > table#list-bus-table').hide();
+    $('.bus-container > div.payments-bus-container').show();
+
+}
+
+function on_click__view_payments_franchisee(context, fr_id) {
+    $('.franchisee-container span.heading > h2').text('LIST OF FRANCHISEE PAYMENTS');
+    $('.franchisee-container #list-franchisee-table').hide();
+    $('.franchisee-container .payments-franchisee-container').show();
+
+    $.ajax({
+        url: 'http://' + server_address + '/api/entity/franchisee/viewPayments/' + fr_id,
+        type: 'post',
+        success: function (data) {
+            let sn_no = 1;
+            let tbody_data = '';
+            for (const key in data) {
+                data[key]['payments'].forEach(function (pay_data) {
+                    tbody_data += `
+                    <tr>
+                        <td>${sn_no++}</td>
+                        <td>${data[key]['date']}</td>
+                        <td>${data[key]['ad-name']}</td>
+                        <td>${pay_data['formula-type']}</td>
+                        <td>${pay_data['amount']}</td>
+                        <td>${pay_data['is_paid']?'Paid':'Pending'}</td>
+                    </tr>`;
+                });
+            }
+            $('.franchisee-container .payments-franchisee-container table tbody').empty().append(tbody_data);
+        }
+    });
+}
+
+function on_click__view_payments_franchisee_back_btn(context, fr_id) {
+    $('.franchisee-container span.heading > h2').text('LIST OF FRANCHISEE');
+    $('.franchisee-container .payments-franchisee-container').hide();
+    $('.franchisee-container #list-franchisee-table').show();
+}
+
+function on_click__view_payments_agency(context, ag_id) {
+    $.ajax({
+        url: 'http://' + server_address + '/api/entity/agency/viewPayments/' + ag_id,
+        type: 'post',
+        success: function (data) {
+            let sn_no = 1;
+            let tbody_data = '';
+            for (const key in data) {
+                tbody_data += `
+                <tr>
+                    <td>${sn_no++}</td>
+                    <td>${data[key]['date']}</td>
+                    <td>${data[key]['ad-name']}</td>
+                    <td>${data[key]['amount']}</td>
+                    <td>${data[key]['is_paid']}</td>
+                </tr>`;
+            }
+            $('.agency-main .payments-agency-container table tbody').empty().append(tbody_data);
         }
     });
 }

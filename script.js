@@ -63,6 +63,7 @@ function load_data() {
                 if (server_data.bus) load_bus_table(server_data.bus);
                 if (server_data.profit_ratio) load_profit_ratio_details(server_data.profit_ratio);
                 if (server_data.orders) load_orders(server_data.orders);
+                if (server_data.company) load_company(server_data.company);
 
                 if (server_data.franchisee) {
                     server_data.franchisee.forEach(function (loop_data) {
@@ -355,6 +356,23 @@ function load_orders(data) {
         </details>`;
     };
     $('.order-main .order-detail-container').empty().append(output_html);
+}
+
+function load_company(data) {
+    let html_data = '';
+    data.forEach(function (loop_data, i) {
+        html_data += `
+        <tr>
+            <td>${i}</td>
+            <td>${loop_data['ad-name']}</td>
+            <td>${loop_data['by-user-type']} - ${loop_data['username']}</td>
+            <td>${loop_data['amount']}</td>
+            <td>${loop_data['date-created']}</td>
+            <td>${loop_data['date-updated']}</td>
+        </tr>
+        `;
+    })
+    $(`.company-revenue-table tbody`).empty().append(html_data);
 }
 
 function on_click__orders_record_payment(context) {

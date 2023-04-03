@@ -415,6 +415,13 @@ function on_click__view_payments_bus(context, bus_id) {
 
 }
 
+function on_click__view_payments_bus_back_btn(context, bus_id) {
+    $('.bus-container > span > h2').text('LIST OF BUS');
+    $('.bus-container > div.payments-bus-container').hide();
+    $('.bus-container > table#list-bus-table').show();
+
+}
+
 function on_click__view_payments_franchisee(context, fr_id) {
     $('.franchisee-container span.heading > h2').text('LIST OF FRANCHISEE PAYMENTS');
     $('.franchisee-container #list-franchisee-table').hide();
@@ -450,7 +457,13 @@ function on_click__view_payments_franchisee_back_btn(context, fr_id) {
     $('.franchisee-container #list-franchisee-table').show();
 }
 
+
+
+
 function on_click__view_payments_agency(context, ag_id) {
+    $('.edit-bus-container span.heading > h2').text('LIST OF AGENCY PAYMENTS');
+    $('.edit-bus-container  table#list-agency-table').hide();
+    $('.edit-bus-container  .payments-agency-container').show();
     $.ajax({
         url: 'http://' + server_address + '/api/entity/agency/viewPayments/' + ag_id,
         type: 'post',
@@ -471,3 +484,16 @@ function on_click__view_payments_agency(context, ag_id) {
         }
     });
 }
+function on_click__view_payments_agency_back_btn(context, ag_id) {
+    console.log("on_click__view_payments_agency_back_btn");
+    $('.edit-bus-container > span > h2').text('LIST OF BUS');
+    $('.edit-bus-container > div.payments-agency-container').hide();
+    $('.edit-bus-container table#list-agency-table').show();
+}
+
+
+/*...............................................all select bus-list..........................................*/
+$('.list-bus-container table thead th:first-child input[type="checkbox"]').click(function(){
+    $('.list-bus-container table tbody td:first-child input[type="checkbox"] ').prop("checked", this.checked);
+  });
+  

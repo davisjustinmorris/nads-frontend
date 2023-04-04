@@ -170,7 +170,7 @@
             <div class="district-filters">
                 <!--          put input inside label, remove "for" from label-->
                 <span>Filter By Region</span>
-                <input type="checkbox" name="all">
+                <input type="checkbox" name="all" class="all">
                 <label for="">All</label>
                 <label><input type="checkbox" name="ernakulam">Ernakulam</label>
                 <label><input type="checkbox" name="kannur">kannur</label>
@@ -192,7 +192,7 @@
             <table cellspacing="20">
                 <thead>
                 <tr>
-                    <th scope="col">SELECT</th>
+                    <th scope="col">SELECT ALL<input type="checkbox" name="selectAll"></th>
                     <th scope="col">NO.OF BUS</th>
                     <th scope="col">DISTRICT</th>
                     <th scope="col">BUS FRANCHISEE</th>
@@ -731,7 +731,7 @@
 
 
 <!--franchisee main-->
-<div class="franchisee-main" style="display: none;">
+<div class="franchisee-main" id="franchisee-main" style="display: none;">
     <div class="topbar">
         <div class="toggle" onclick=" toggleMenu();"></div>
         <div class="user">
@@ -1172,7 +1172,7 @@
               <td>GEEBEES</td>
               <td>KAKKANAD-FORT KOCHI</td>
               <td>KL-06-E-1997</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
             </tr>
             <tr>
               <th><input type="checkbox" id="bus2" name="bus2" value="Bus"></th>
@@ -1183,7 +1183,7 @@
               <td>GURUDEV</td>
               <td>KALOOR-MOOVATTUPUZHA</td>
               <td>KL-03-Y-2700</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
 
             </tr>
             <tr>
@@ -1195,7 +1195,7 @@
               <td>DEVI PRASADHAM</td>
               <td>CHITTOOR-CHOTTANIKARA</td>
               <td>KL-07-AP-8094</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
 
             </tr>
             <tr>
@@ -1207,7 +1207,7 @@
               <td>DEVI PRASADHAM</td>
               <td>CHITTOOR-CHERANALLOR-MATTANCHERY</td>
               <td>KL-65-C-1572</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
 
             </tr>
             <tr>
@@ -1219,7 +1219,7 @@
               <td>RAO'S</td>
               <td>CHERANALOR-THRIPUNITHURA</td>
               <td>KL-40-A-8765</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
 
             </tr>
             <tr>
@@ -1231,7 +1231,7 @@
               <td>SADHIKA</td>
               <td>ERNAKULAM-PARAVOOR</td>
               <td>KL-42-Q-4567</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
 
             </tr>
             <tr>
@@ -1243,7 +1243,7 @@
               <td>AJMEER</td>
               <td>PARAVOOR-EDAPALLY-VAITTILA</td>
               <td>KL-08-AF-7299</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
 
             </tr>
             <tr>
@@ -1255,7 +1255,7 @@
               <td>AJMEER</td>
               <td>CHERANALLOR-THEAVARA FURRY</td>
               <td>KL-07-BF-7287</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
 
             </tr>
             <tr>
@@ -1267,7 +1267,7 @@
               <td>AMMANATH</td>
               <td>CHATHANADU-KALLOR</td>
               <td>KL-17-E-1896</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
 
             </tr>
             <tr>
@@ -1279,14 +1279,14 @@
               <td>ABAABEEL</td>
               <td>PARAVOOR-KALLOR</td>
               <td>KL-23-A-7929</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
+              <td><a href="#" onclick="on_click__view_payments_bus(this)">VIEW PAYMENT</a></td>
             </tr>
 
         </tbody>
       </table>
       <div class="payments-bus-container" style="display: none;">
         <div class="bus-payment-backBtn">
-          <span><i class="fa-solid fa-arrow-left"></i></span>
+          <span onclick="on_click__view_payments_bus_back_btn(this)"><i class="fa-solid fa-arrow-left"></i></span>
           <div class="">
             <label for="">STARTING DATE</label>
             <input type="date" name="" id="">
@@ -1684,114 +1684,98 @@
         </div>
     </div>
     <div class="edit-bus-container">
-        <span><h2>ADD AGENCY</h2></span>
-        <form action="/api/entity/agency/add" id="add-agency-form" method="post">
             <div class="">
-                <label for="">Agency Name</label>
-                <input type="text" name="name">
+                <span><h2>ADD AGENCY</h2></span>
+                <form action="/api/entity/agency/add" id="add-agency-form" method="post">
+                    <div class="">
+                        <label for="">Agency Name</label>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="">
+                        <button type="submit">Submit</button>
+                    </div>
+            </div>    
+            </form>
+            <div class="agency-list">
+                <span><h2>LIST OF AGENCY</h2></span>
+                <table id="list-agency-table" cellspacing="10">
+                    <thead>
+                    <tr>
+                    <th>Serial NO</th>
+                    <th>Agency Name</th>
+                    <th>Payment Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>A</td>
+                    <td><a href="#" onclick="on_click__view_payments(this)">VIEW PAYMENT</a></td>
+                    </tr>
+                    <tr>
+                    <td>2</td>
+                    <td>B</td>
+                    <td><a href="#" onclick="on_click__view_payments(this)">VIEW PAYMENT</a></td>
+                    </tr>
+                    <tr>
+                    <td>3</td>
+                    <td>c</td>
+                    <td><a href="#" onclick="on_click__view_payments(this)">VIEW PAYMENT</a></td>
+                    </tr>
+                    <tr>
+                    <td>4</td>
+                    <td>D</td>
+                    <td><a href="#" onclick="on_click__view_payments(this)">VIEW PAYMENT</a></td>
+                    </tr>
+                    <tr>
+                    <td>5</td>
+                    <td>E</td>
+                    <td><a href="#" onclick="on_click__view_payments(this)">VIEW PAYMENT</a></td>
+                    </tr>
+                </tbody>
+                </table>
             </div>
-            <div class="">
-                <label for="">Ad Name</label>
-                <input type="text" name="ad-name">
+    
+        <div class="payments-agency-container">
+            <div class="agency-payment-backBtn">
+                <span onclick="on_click__view_payments_agency_back_btn()"><i class="fa-solid fa-arrow-left"></i></span>
+                <div class="">
+                    <label for="">STARTING DATE</label>
+                    <input type="date" name="" id="">
+                    <label for="">ENDING DATE</label>
+                    <input type="date" name="" id="">
+                </div>
             </div>
-            <div class="">
-                <label for="">Client Name</label>
-                <input type="text" name="clientName">
-            </div>
-            <div class="">
-                <label for="">From</label>
-                <input type="date" name="date">
-                <label for="">To</label>
-                <input type="date" name="date">
-            </div>
-            <div class="">
-                <label for="">Amount</label>
-                <input type="text" name="gstAmount">
-            </div>
-            <div class="">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </div>
-    <div class="agency-list">
-        <span><h2>LIST OF AGENCY</h2></span>
-        <table id="list-agency-table" cellspacing="10">
-            <thead>
-            <tr>
-              <th>Serial NO</th>
-              <th>Agency Name</th>
-              <th>Payment Status</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>1</td>
-              <td>A</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>B</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>c</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>D</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>E</td>
-              <td><a href="#">VIEW PAYMENT</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="payments-agency-container">
-        <div class="agency-payment-backBtn">
-          <span><i class="fa-solid fa-arrow-left"></i></span>
-          <div class="">
-            <label for="">STARTING DATE</label>
-            <input type="date" name="" id="">
-            <label for="">ENDING DATE</label>
-            <input type="date" name="" id="">
-          </div>
+            <table cellspacing="10">
+                <thead>
+                    <tr>
+                    <th>SL NO</th>
+                    <th>DATE</th>
+                    <th>AD NAME</th>
+                    <th>AMOUNT</th>
+                    <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>1/1/2023</td>
+                    <td>repo</td>
+                    <td>5,000</td>
+                    <td>pending</td>
+                    </tr>
+                    <tr>
+                    <td>2</td>
+                    <td>2/2/2023</td>
+                    <td>repo</td>
+                    <td>5,000</td>
+                    <td>paid</td>
+                    </tr>
+                    </tbody>
+            </table>
         </div>
-        <table cellspacing="10">
-          <thead>
-            <tr>
-              <th>SL NO</th>
-              <th>DATE</th>
-              <th>AD NAME</th>
-              <th>AMOUNT</th>
-              <th>STATUS</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>1/1/2023</td>
-              <td>repo</td>
-              <td>5,000</td>
-              <td>pending</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>2/2/2023</td>
-              <td>repo</td>
-              <td>5,000</td>
-              <td>paid</td>
-            </tr>
-            </tbody>
-        </table>
-      </div>
-  </div>
-
+    </div>
+</div>
 
 <!--settings main or revenue formula-->
 <div class="settings-main" style="display: none;">
@@ -1918,6 +1902,23 @@
                     </div>
                 </div>
             </div>
+            <div class="select-settings-duration">
+                <div class="">
+                    <span>Ad Duration</span>
+                    <input type="radio" name="settings-ad-duration" value="15" checked>
+                    <label for="">15s</label>
+                    <input type="radio" name="settings-ad-duration" value="30">
+                    <label for="">30s</label>
+                    <input type="radio" name="settings-ad-duration" value="45">
+                    <label for="">45s</label>
+                    <input type="radio" name="settings-ad-duration" value="60">
+                    <label for="">60s</label>
+                </div>
+                <div class="">
+                    <label for="">Ad Rate</label>
+                    <input type="text" name="settings-ad-rate">
+                </div>                
+            </div>
         </div>
         <div class="revenue-submit-btn">
             <button type="submit">Submit</button>
@@ -2009,7 +2010,7 @@
         let navigation = document.querySelector('.navigation');
         let main = document.querySelector('.main');
         let orderMain = document.querySelector('.order-main');
-        let franchiseeMain = document.querySelector('.franchisee-main');
+        let franchiseeMain = document.querySelector('#franchisee-main');
         let addClientMain = document.querySelector('.add-client-main');
         let busMain = document.querySelector('.bus-main');
         let organisationMain = document.querySelector('.organisation-main');

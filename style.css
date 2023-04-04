@@ -23,7 +23,7 @@ body{
   height: 100%;
   background: #003147;
   transition: 0.5s;
-  overflow: hidden;
+  overflow-y:scroll ;
 
 }
 .navigation.active{
@@ -179,6 +179,7 @@ font-weight: 500;
  gap: 50px;
  padding: 10px;
  margin: 1rem 0;
+
 }
 
 .orderbus-input-items div {
@@ -191,7 +192,14 @@ font-weight: 500;
   margin: 1rem;
 }
 .list-bus-container {
+  height: 800px;
   overflow-x: scroll;
+}
+table a{
+  text-decoration: none;
+  color: #03a9f4;
+  cursor: pointer;
+
 }
 
 /*...................................................................order main start.............................................................*/
@@ -348,7 +356,6 @@ body > .franchisee-main{
   min-height: 100vh;
   background: #f5f5f5;
   transition: 0.5s;
-
 }
 .franchisee-main.active{
   width: calc(100% - 60px);
@@ -1688,11 +1695,11 @@ font-weight: 500;
     width:calc(100% - 300px);
     left: 300px;
   }
-  .franchisee-main{
+  #franchisee-main{
     width: 100%;
     left: 0;
   }
-  .franchisee-main.active{
+  #franchisee-main.active{
     width:calc(100% - 300px);
     left: 300px;
   }
@@ -1822,8 +1829,8 @@ font-weight: 500;
       width: 100%;
       left: 0;
   }
-  .franchisee-main,
-  .franchisee-main.active{
+  #franchisee-main,
+  #franchisee-main.active{
       width: 100%;
       left: 0;
   }

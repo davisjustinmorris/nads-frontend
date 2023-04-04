@@ -33,7 +33,7 @@ function handle_ajax_form(e) {
     e.preventDefault();
     console.log('invoked: ajax form for: ', e.currentTarget.id);
     if (e.currentTarget.id === 'create-order-form')
-        if (!on_click__orders__final_calc_button()) return;
+        if (!on_click__orders__gst_check_changed(null, false)) return;
 
     if (e.currentTarget.action.split('/api').length !== 2) return;
 
@@ -142,9 +142,6 @@ function attach_listeners() {
             });
         }
     })
-
-    // add order >> final calculation button
-    $(`#create-order-form .final-calculation-container button.btn-calc`).on('click', on_click__orders__final_calc_button);
 }
 
 function load_franchisee_table(data) {
@@ -254,39 +251,37 @@ function create_order__calculate() {
     return ad_total_rate;
 }
 
-function on_click__orders__final_calc_button() {
-    let existing_calc = create_order__calculate();
-    if (existing_calc === false) return false;
-    let discount = $(`#create-order-form .final-calculation-container input[name="discount"]`).val();
-    if (discount) {
-        existing_calc = existing_calc - discount;
-    }
-    $(`#create-order-form .final-calculation-container > div:nth-child(2) > :nth-child(2)`).text(existing_calc);
-    return existing_calc;
-}
 
-function on_click__orders__gst_check_changed(context) {
+function on_click__orders__gst_check_changed(context, by_checkbox) {
     console.log('gst check changed');
     console.log(context);
 
-    let gst;
+    if (by_checkbox) {
+        if (context.value === "inclusive" && context.checked)
+            $(`#create-order-form .final-calculation-container input[name="gst-option"][value="exclusive"]`)
+                .prop('checked', false);
+        else if (context.value === "exclusive" && context.checked)
+            $(`#create-order-form .final-calculation-container input[name="gst-option"][value="inclusive"]`)
+                .prop('checked', false);
+    }
 
-    if (context.value === "inclusive" && context.checked)
-        $(`#create-order-form .final-calculation-container input[name="gst-option"][value="exclusive"]`)
-            .prop('checked', false);
-    else if (context.value === "exclusive" && context.checked)
-        $(`#create-order-form .final-calculation-container input[name="gst-option"][value="inclusive"]`)
-            .prop('checked', false);
-    else gst = 0;
-
-    if (gst !== 0) {
-        gst = 0;
-        let payable_amount = on_click__orders__final_calc_button()
-        if (payable_amount) gst = payable_amount * 0.18;
+    let gst = 0;
+    let total_rate = create_order__calculate();
+    if (total_rate) {
+        let discount = $(`#create-order-form .final-calculation-container input[name="discount"]`).val() || 0;
+        if (discount) total_rate = total_rate - discount;
+        let gst_option = $('#create-order-form input[name="gst-option"]:checked').val()
+        if (gst_option) {
+            gst = total_rate * 0.18;
+            if (gst_option === "exclusive") total_rate = total_rate + gst
+        }
     }
 
     $(`#create-order-form .final-calculation-container .gst-div input`).val(gst);
     $(`#create-order-form .final-calculation-container .gst-div span`).text(gst);
+    $(`#create-order-form .final-calculation-container > div:nth-child(2) > :nth-child(2)`).text(total_rate?total_rate:0);
+
+    return !!total_rate
 }
 
 function load_ad_client_table(data) {

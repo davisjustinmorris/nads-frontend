@@ -476,11 +476,11 @@
                 </div>
                 <div class="">
                     <label for="">GST Inclusive</label>
-                    <input type="checkbox" name="gst-option" value="inclusive" onchange="on_click__orders__gst_check_changed(this)">
+                    <input type="checkbox" name="gst-option" value="inclusive" onchange="on_click__orders__gst_check_changed(this, true)">
                     <label for="">GST Exclusive</label>
-                    <input type="checkbox" name="gst-option" value="exclusive" onchange="on_click__orders__gst_check_changed(this)">
+                    <input type="checkbox" name="gst-option" value="exclusive" onchange="on_click__orders__gst_check_changed(this, true)">
                 </div>
-                <button class="btn-calc" type="button">Calculate</button>
+                <button class="btn-calc" type="button" onclick="on_click__orders__gst_check_changed(null, false)">Calculate</button>
             </div>
 
         </div>

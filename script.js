@@ -65,6 +65,7 @@ function load_data() {
                 if (server_data.orders) load_orders(server_data.orders);
                 if (server_data.company) load_company(server_data.company);
                 if (server_data.server) load_server_charges(server_data.server);
+                if (server_data.gst) load_gst_table(server_data.gst);
 
                 if (server_data.franchisee) {
                     server_data.franchisee.forEach(function (loop_data) {
@@ -243,21 +244,49 @@ function create_order__calculate() {
                 else count_other = count_other + 1;
             }
         });
-
         if (count_normal) $(`#create-order-form .order-form-table .normal`).show();
         if (count_other) $(`#create-order-form .order-form-table .other-Franchisee`).show();
     } else {
         console.log('is captured by ag detected');
-
         $(`#create-order-form .order-form-table .company-Agency`).show();
     }
+
+    return ad_total_rate;
 }
 
 function on_click__orders__final_calc_button() {
     let existing_calc = create_order__calculate();
     if (existing_calc === false) return false;
+    let discount = $(`#create-order-form .final-calculation-container input[name="discount"]`).val();
+    if (discount) {
+        existing_calc = existing_calc - discount;
+    }
     $(`#create-order-form .final-calculation-container > div:nth-child(2) > :nth-child(2)`).text(existing_calc);
-    return true;
+    return existing_calc;
+}
+
+function on_click__orders__gst_check_changed(context) {
+    console.log('gst check changed');
+    console.log(context);
+
+    let gst;
+
+    if (context.value === "inclusive" && context.checked)
+        $(`#create-order-form .final-calculation-container input[name="gst-option"][value="exclusive"]`)
+            .prop('checked', false);
+    else if (context.value === "exclusive" && context.checked)
+        $(`#create-order-form .final-calculation-container input[name="gst-option"][value="inclusive"]`)
+            .prop('checked', false);
+    else gst = 0;
+
+    if (gst !== 0) {
+        gst = 0;
+        let payable_amount = on_click__orders__final_calc_button()
+        if (payable_amount) gst = payable_amount * 0.18;
+    }
+
+    $(`#create-order-form .final-calculation-container .gst-div input`).val(gst);
+    $(`#create-order-form .final-calculation-container .gst-div span`).text(gst);
 }
 
 function load_ad_client_table(data) {
@@ -387,6 +416,28 @@ function load_server_charges(data) {
         </tr>`;
     })
     $(`.payments-serverCharge-container tbody`).empty().append(html_data);
+}
+
+function load_gst_table(data) {
+    let html_data = '';
+    let counter = 1;
+
+    for (const order_id in data) {
+        html_data += `
+        <tr>
+            <td>${counter++}</td>
+            <td>${server_data['map']['orders'][order_id]['client-name']}</td>
+            <td>${server_data['map']['orders'][order_id]['ad-name']}</td>
+            <td>${data[order_id]['payable_amount'] + data[order_id]['gst_amount']} (${data[order_id]['inclusive_or_exclusive']})</td>
+            <td>${data[order_id]['gst_amount']}</td>
+            <td>${data[order_id]['payable_amount']}</td>
+            <td>${data[order_id]['client_paid']}</td>
+            <td>${data[order_id]['inclusive_or_exclusive']==="exclusive" ? "Payable" : "Non-Payable"}</td>
+        </tr>
+        `;
+    }
+
+    $(`.gst-main .gst-container table tbody`).empty().append(html_data);
 }
 
 function on_click__orders_record_payment(context) {

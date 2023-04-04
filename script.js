@@ -251,7 +251,6 @@ function create_order__calculate() {
     return ad_total_rate;
 }
 
-
 function on_click__orders__gst_check_changed(context, by_checkbox) {
     console.log('gst check changed');
     console.log(context);
@@ -472,14 +471,31 @@ function on_click__view_payments_bus(context, bus_id) {
     $('.bus-container > span > h2').text('LIST OF BUS PAYMENTS');
     $('.bus-container > table#list-bus-table').hide();
     $('.bus-container > div.payments-bus-container').show();
-
+    $.ajax({
+        url: 'http://' + server_address + '/api/entity/bus_owner/viewPayments/' + bus_id,
+        type: 'post',
+        success: function (data) {
+            let sn_no = 1;
+            let tbody_data = '';
+            for (const key in data) {
+                tbody_data += `
+                <tr>
+                    <td>${sn_no++}</td>
+                    <td>${data[key]['date']}</td>
+                    <td>${data[key]['amount']}</td>
+                    <td>${data[key]['ad-name']}</td>
+                    <td>${data[key]['is_paid']}</td>
+                </tr>`;
+            }
+            $('.bus-container .payments-bus-container table tbody').empty().append(tbody_data);
+        }
+    });
 }
 
 function on_click__view_payments_bus_back_btn(context, bus_id) {
     $('.bus-container > span > h2').text('LIST OF BUS');
     $('.bus-container > div.payments-bus-container').hide();
     $('.bus-container > table#list-bus-table').show();
-
 }
 
 function on_click__view_payments_franchisee(context, fr_id) {
@@ -517,9 +533,6 @@ function on_click__view_payments_franchisee_back_btn(context, fr_id) {
     $('.franchisee-container #list-franchisee-table').show();
 }
 
-
-
-
 function on_click__view_payments_agency(context, ag_id) {
     $('.edit-bus-container span.heading > h2').text('LIST OF AGENCY PAYMENTS');
     $('.edit-bus-container  table#list-agency-table').hide();
@@ -544,6 +557,7 @@ function on_click__view_payments_agency(context, ag_id) {
         }
     });
 }
+
 function on_click__view_payments_agency_back_btn(context, ag_id) {
     console.log("on_click__view_payments_agency_back_btn");
     $('.edit-bus-container > span > h2').text('LIST OF BUS');

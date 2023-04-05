@@ -209,10 +209,10 @@ function create_order__calculate() {
     }
 
     let duration_rate_map = {
-        15: 167,
-        30: 234,
+        15: 166.6667,
+        30: 234.3334,
         45: 300,
-        60: 367
+        60: 367.6667
     };
     // since all selected values are proper, proceed with the calculations
     $(`#create-order-form .display-inputs-container span[name="no-of-bus"]`).text(selected_bus_ids.length);

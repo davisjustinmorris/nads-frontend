@@ -1585,6 +1585,19 @@ font-weight: 500;
   background-color:transparent;
   display: flex;
 }
+.setting-formula-container .select-settings-duration span{
+  padding: 10px 0;
+  justify-content:start;
+  display: flex;
+}
+.setting-formula-container .select-settings-duration  input{
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color:transparent;
+  display: flex;
+}
+
 
 .edit-setting-container{
   padding: 1rem;
@@ -1635,6 +1648,7 @@ font-weight: 500;
   grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
   gap: 20px;
   padding: 50px;
+ 
 }
 .revenue-order-form-table .normal span h4{
   margin-bottom: 1rem;

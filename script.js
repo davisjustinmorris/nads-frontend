@@ -241,8 +241,12 @@ function create_order__calculate() {
                 else count_other = count_other + 1;
             }
         });
-        if (count_normal) $(`#create-order-form .order-form-table .normal`).show();
-        if (count_other) $(`#create-order-form .order-form-table .other-Franchisee`).show();
+        if (count_normal) {
+            $(`#create-order-form .order-form-table .normal`).show();
+        }
+        if (count_other) {
+            $(`#create-order-form .order-form-table .other-Franchisee`).show();
+        }
     } else {
         console.log('is captured by ag detected');
         $(`#create-order-form .order-form-table .company-Agency`).show();
@@ -478,6 +482,7 @@ function on_click__view_payments_bus(context, bus_id) {
             let sn_no = 1;
             let tbody_data = '';
             for (const key in data) {
+                let mark_paid = `<a href="#" onclick="on_click__view_payments_bus_mark_paid(${bus_id}, ${data[key]['mark_id']}, ${data[key]['amount']})">Mark Paid</a>`;
                 tbody_data += `
                 <tr>
                     <td>${sn_no++}</td>
@@ -485,9 +490,23 @@ function on_click__view_payments_bus(context, bus_id) {
                     <td>${data[key]['amount']}</td>
                     <td>${data[key]['ad-name']}</td>
                     <td>${data[key]['is_paid']}</td>
+                    <td>${data[key]['is_paid']==="Paid"? " - " : mark_paid}</td>
                 </tr>`;
             }
             $('.bus-container .payments-bus-container table tbody').empty().append(tbody_data);
+        }
+    });
+}
+
+function on_click__view_payments_bus_mark_paid(bus_id, mark_id, amount) {
+    $.ajax({
+        url: 'http://' + server_address + '/api/entity/bus_owner/markPaid',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({bus_id, mark_id, amount}),
+        success: function (data) {
+            if (data.success) location.reload();
+            else if (data.error) alert(data.error);
         }
     });
 }
@@ -511,6 +530,7 @@ function on_click__view_payments_franchisee(context, fr_id) {
             let tbody_data = '';
             for (const key in data) {
                 data[key]['payments'].forEach(function (pay_data) {
+                    let mark_pay_link = `<a href="#" onclick="on_click__view_payments_franchisee_mark_paid(${fr_id}, ${key}, ${pay_data['lid']}, ${pay_data['amount']})">Mark Paid</a>`
                     tbody_data += `
                     <tr>
                         <td>${sn_no++}</td>
@@ -519,10 +539,24 @@ function on_click__view_payments_franchisee(context, fr_id) {
                         <td>${pay_data['formula-type']}</td>
                         <td>${pay_data['amount']}</td>
                         <td>${pay_data['is_paid']?'Paid':'Pending'}</td>
+                        <td>${pay_data['is_paid'] ? ' - ' : mark_pay_link}</td>
                     </tr>`;
                 });
             }
             $('.franchisee-container .payments-franchisee-container table tbody').empty().append(tbody_data);
+        }
+    });
+}
+
+function on_click__view_payments_franchisee_mark_paid(fr_id, ad_id, l_id, amount) {
+    $.ajax({
+        url: 'http://' + server_address + '/api/entity/franchisee/markPaid',
+        type: 'post',
+        contentType: 'application/json',
+        data: JSON.stringify({fr_id, ad_id, l_id, amount}),
+        success: function (data) {
+            if (data.success) location.reload();
+            else if (data.error) alert(data.error);
         }
     });
 }
@@ -544,6 +578,7 @@ function on_click__view_payments_agency(context, ag_id) {
             let sn_no = 1;
             let tbody_data = '';
             for (const key in data) {
+                let mark_paid = `<a href="#" onclick="on_click__view_payments_agency_mark_paid(${ag_id}, ${data[key]['lid']}, ${key}, ${data[key]['amount']})">Mark Paid</a>`;
                 tbody_data += `
                 <tr>
                     <td>${sn_no++}</td>
@@ -551,9 +586,23 @@ function on_click__view_payments_agency(context, ag_id) {
                     <td>${data[key]['ad-name']}</td>
                     <td>${data[key]['amount']}</td>
                     <td>${data[key]['is_paid']}</td>
+                    <td>${data[key]['is_paid']==="Paid"? " - " : mark_paid}</td>
                 </tr>`;
             }
             $('.agency-main .payments-agency-container table tbody').empty().append(tbody_data);
+        }
+    });
+}
+
+function on_click__view_payments_agency_mark_paid(ag_id, lid, od_id, amount) {
+    $.ajax({
+        url: 'http://' + server_address + '/api/entity/agency/markPaid',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ag_id, lid, od_id, amount}),
+        success: function (data) {
+            if (data.success) location.reload();
+            else if (data.error) alert(data.error);
         }
     });
 }

@@ -66,6 +66,7 @@ function load_data() {
                 if (server_data.company) load_company(server_data.company);
                 if (server_data.server) load_server_charges(server_data.server);
                 if (server_data.gst) load_gst_table(server_data.gst);
+                if (server_data.organisation) load_organisation(server_data.organisation);
 
                 if (server_data.franchisee) {
                     server_data.franchisee.forEach(function (loop_data) {
@@ -397,7 +398,7 @@ function load_company(data) {
                 <td>${loop_data['ad-name']}</td>
                 <td>${loop_data['by-user-type']} - ${loop_data['username']}</td>
                 <td>${key}</td>
-                <td>${loop_data['payments'][key]}</td>
+                <td>${loop_data['payments'][key].toFixed(2)}</td>
                 <td>${loop_data['date-created']}</td>
                 <td>${loop_data['date-updated']}</td>
             </tr>`;
@@ -413,7 +414,7 @@ function load_server_charges(data) {
         <tr>
             <td>${i}</td>
             <td>${loop_data['date']}</td>
-            <td>${loop_data['amount']}</td>
+            <td>${loop_data['amount'].toFixed(2)}</td>
             <td>${loop_data['ad-name']}</td>
         </tr>`;
     })
@@ -440,6 +441,23 @@ function load_gst_table(data) {
     }
 
     $(`.gst-main .gst-container table tbody`).empty().append(html_data);
+}
+
+function load_organisation(data) {
+    let html_data = '';
+    data.forEach(function (loop_data, i) {
+        for (let key in loop_data['payments']) {
+            html_data += `
+            <tr>
+                <td>${i}</td>
+                <td>${loop_data['date']}</td>
+                <td>${loop_data['ad-name']}</td>
+                <td>${key}</td>
+                <td>${loop_data['payments'][key]}</td>
+            </tr>`;
+        }
+    })
+    $(`.organisation-main .organisation-container tbody`).empty().append(html_data);
 }
 
 function on_click__orders_record_payment(context) {

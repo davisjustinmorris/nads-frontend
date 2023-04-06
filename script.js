@@ -282,7 +282,8 @@ function on_click__orders__gst_check_changed(context, by_checkbox) {
 
     $(`#create-order-form .final-calculation-container .gst-div input`).val(gst);
     $(`#create-order-form .final-calculation-container .gst-div span`).text(gst);
-    $(`#create-order-form .final-calculation-container > div:nth-child(2) > :nth-child(2)`).text(total_rate?total_rate:0);
+    $(`#create-order-form .final-calculation-container > div:nth-child(2) > :nth-child(2)`)
+        .text(total_rate?total_rate:0);
 
     return !!total_rate
 }

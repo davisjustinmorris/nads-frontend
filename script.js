@@ -390,15 +390,18 @@ function load_orders(data) {
 function load_company(data) {
     let html_data = '';
     data.forEach(function (loop_data, i) {
-        html_data += `
-        <tr>
-            <td>${i}</td>
-            <td>${loop_data['ad-name']}</td>
-            <td>${loop_data['by-user-type']} - ${loop_data['username']}</td>
-            <td>${loop_data['amount']}</td>
-            <td>${loop_data['date-created']}</td>
-            <td>${loop_data['date-updated']}</td>
-        </tr>`;
+        for (let key in loop_data['payments']) {
+            html_data += `
+            <tr>
+                <td>${i}</td>
+                <td>${loop_data['ad-name']}</td>
+                <td>${loop_data['by-user-type']} - ${loop_data['username']}</td>
+                <td>${key}</td>
+                <td>${loop_data['payments'][key]}</td>
+                <td>${loop_data['date-created']}</td>
+                <td>${loop_data['date-updated']}</td>
+            </tr>`;
+        }
     })
     $(`.company-revenue-table tbody`).empty().append(html_data);
 }

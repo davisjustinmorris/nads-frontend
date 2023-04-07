@@ -27,6 +27,10 @@ $(document).ready(function () {
 
     load_data();
     attach_listeners();
+
+    let url = new URL(location.href);
+    let view = url.searchParams.get('view');
+    if (view) link_navigator(view);
 });
 
 function handle_ajax_form(e) {
@@ -92,15 +96,21 @@ function load_data() {
     });
 }
 
+function link_navigator (li_class) {
+    console.log(li_class);
+    $(`body > div:not(:first-child)`).hide()
+    let link_class = typeof li_class==="string"? li_class : this.classList[0];
+    let div_class = link_main_class_names[link_class];
+    $(`body > div.` + div_class).show()
+
+    let url = new URL(location.href);
+    url.searchParams.set('view', link_class);
+    history.pushState({}, null, url.toString());
+}
+
 function attach_listeners() {
     // side nav listeners
-    $(`body > .container > .navigation > ul li:not(:first-child)`).on('click', function () {
-        $(`body > div:not(:first-child)`).hide()
-        let link_class = this.classList[0];
-        let div_class = link_main_class_names[link_class];
-        $(`body > div.` + div_class).show()
-        console.log(link_class, div_class);
-    });
+    $(`body > .container > .navigation > ul li:not(:first-child)`).on('click', link_navigator);
 
     // add-bus-form >> listener on radio button for bus captured by
     $(`#add-bus-form input[name='bus-captured-by-type']`).on('change', function () {
@@ -390,11 +400,12 @@ function load_orders(data) {
 
 function load_company(data) {
     let html_data = '';
-    data.forEach(function (loop_data, i) {
+    let i = 1;
+    data.forEach(function (loop_data) {
         for (let key in loop_data['payments']) {
             html_data += `
             <tr>
-                <td>${i}</td>
+                <td>${i++}</td>
                 <td>${loop_data['ad-name']}</td>
                 <td>${loop_data['by-user-type']} - ${loop_data['username']}</td>
                 <td>${key}</td>

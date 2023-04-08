@@ -36,8 +36,12 @@ $(document).ready(function () {
 function handle_ajax_form(e) {
     e.preventDefault();
     console.log('invoked: ajax form for: ', e.currentTarget.id);
-    if (e.currentTarget.id === 'create-order-form')
+    if (e.currentTarget.id === 'create-order-form') {
         if (!on_click__orders__gst_check_changed(null, false)) return;
+        // uncheck hidden bus rows
+        $(`#create-order-form .list-bus-container tbody tr[style*="display: none"] td:first-child input[type="checkbox"]`)
+            .prop('checked', false);
+    }
 
     if (e.currentTarget.action.split('/api').length !== 2) return;
 
@@ -368,7 +372,7 @@ function load_orders(data) {
 
     for (const key in data) {
         const loop_data = data[key];
-        output_html += `
+        output_html = `
         <details>
             <summary>
                 <div class="summary-container">
@@ -393,7 +397,7 @@ function load_orders(data) {
                     ${loop_data['is-payment-complete']?'':mark_payment_complete_stub}
                   </div>  
             </summary>
-        </details>`;
+        </details>` + output_html;
     };
     $('.order-main .order-detail-container').empty().append(output_html);
 }

@@ -653,3 +653,27 @@ $('.list-bus-container table thead th:first-child input[type="checkbox"]').click
     $('.list-bus-container table tbody td:first-child input[type="checkbox"] ').prop("checked", this.checked);
   });
   
+  function onClick_cardFranchisee(){
+    $('body > .franchisee-main').show();
+    $('body > .bus-main').hide();
+    $('body > .agency-main').hide();
+    $('body > .add-client-main').hide();
+}
+function onClick_cardBus(){
+    $('body > .franchisee-main').hide();
+    $('body > .bus-main').show();
+    $('body > .agency-main').hide();
+    $('body > .add-client-main').hide();
+}
+function onClick_cardAgency(){
+    $('body > .franchisee-main').hide();
+    $('body > .bus-main').hide();
+    $('body > .agency-main').show();
+    $('body > .add-client-main').hide();
+}
+function onClick_cardClient(){
+    $('body > .franchisee-main').hide();
+    $('body > .bus-main').hide();
+    $('body > .agency-main').hide();
+    $('body > .add-client-main').show();
+}

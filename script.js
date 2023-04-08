@@ -373,7 +373,7 @@ function load_orders(data) {
 
     for (const key in data) {
         const loop_data = data[key];
-        output_html += `
+        output_html = `
         <details>
             <summary>
                 <div class="summary-container">
@@ -398,7 +398,7 @@ function load_orders(data) {
                     ${loop_data['is-payment-complete']?'':mark_payment_complete_stub}
                   </div>  
             </summary>
-        </details>`;
+        </details>` + output_html;
     };
     $('.order-main .order-detail-container').empty().append(output_html);
 }

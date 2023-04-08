@@ -36,8 +36,13 @@ $(document).ready(function () {
 function handle_ajax_form(e) {
     e.preventDefault();
     console.log('invoked: ajax form for: ', e.currentTarget.id);
-    if (e.currentTarget.id === 'create-order-form')
+    if (e.currentTarget.id === 'create-order-form') {
         if (!on_click__orders__gst_check_changed(null, false)) return;
+        // uncheck hidden bus rows
+        $(`#create-order-form .list-bus-container tbody tr[style*="display: none"]`).each(function (loop_index, loop_data) {
+            $(loop_data).find('td:first-child input[type="checkbox"]').prop('checked', false);
+        });
+    }
 
     if (e.currentTarget.action.split('/api').length !== 2) return;
 

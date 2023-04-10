@@ -289,9 +289,11 @@ function on_click__orders__gst_check_changed(context, by_checkbox) {
         let discount = $(`#create-order-form .final-calculation-container input[name="discount"]`).val() || 0;
         if (discount) total_rate = total_rate - discount;
         let gst_option = $('#create-order-form input[name="gst-option"]:checked').val()
-        if (gst_option) {
+        if (gst_option === "exclusive") {
             gst = total_rate * 0.18;
-            if (gst_option === "exclusive") total_rate = total_rate + gst
+            total_rate = total_rate + gst
+        } else if (gst_option === "inclusive") {
+            gst = total_rate - total_rate/1.18;
         }
     }
 
@@ -655,7 +657,7 @@ function on_click__view_payments_agency_back_btn(context, ag_id) {
 /*...............................................all select bus-list..........................................*/
 $('.list-bus-container table thead th:first-child input[type="checkbox"]').click(function(){
     $('.list-bus-container table tbody td:first-child input[type="checkbox"] ').prop("checked", this.checked);
-  });
+});
   
   function onClick_cardFranchisee(){
     $('body > .franchisee-main').show();

@@ -664,22 +664,35 @@ $('.list-bus-container table thead th:first-child input[type="checkbox"]').click
     $('body > .bus-main').hide();
     $('body > .agency-main').hide();
     $('body > .add-client-main').hide();
+    $('body > .main').hide();
+    $('body > .gst-main').hide();
+    $('body > .organisation-main').hide();
+
 }
 function onClick_cardBus(){
     $('body > .franchisee-main').hide();
     $('body > .bus-main').show();
     $('body > .agency-main').hide();
     $('body > .add-client-main').hide();
+    $('body > .main').hide();
+    $('body > .gst-main').hide();
+    $('body > .organisation-main').hide();
 }
 function onClick_cardAgency(){
     $('body > .franchisee-main').hide();
     $('body > .bus-main').hide();
     $('body > .agency-main').show();
     $('body > .add-client-main').hide();
+    $('body > .main').hide();
+    $('body > .gst-main').hide();
+    $('body > .organisation-main').hide();
 }
 function onClick_cardClient(){
     $('body > .franchisee-main').hide();
     $('body > .bus-main').hide();
     $('body > .agency-main').hide();
     $('body > .add-client-main').show();
+    $('body > .main').hide();
+    $('body > .gst-main').hide();
+    $('body > .organisation-main').hide();
 }

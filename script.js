@@ -95,6 +95,10 @@ function load_data() {
                 $(`#add-bus-form select[name='bus-captured-by-id']`).empty().append(select_option_map.franchisee);
                 $(`#create-order-form select[name='ad-captured-by-id']`).empty().append(select_option_map.franchisee);
                 $(`#create-order-form select[name='client-id']`).empty().append(select_option_map.client);
+                $('.cardBox .card .F-number').html(server_data.franchisee.length);
+                $('.cardBox .card .B-number').html(server_data.bus.length);
+                $('.cardBox .card .A-number').html(server_data.agency.length);
+                $('.cardBox .card .C-number').html(server_data.client.length);
             }
         }
     });

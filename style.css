@@ -201,6 +201,37 @@ table a{
   cursor: pointer;
 
 }
+.final-calculation-container button{
+  width: 70px;
+  padding: 5px;
+  background-color: #03a9f4;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+.final-calculation-container button:hover{
+  border: 1px solid #03a9f4;
+  color: #03a9f4;
+  background-color: #fff;
+}
+.main form button{
+  width: 70px;
+  padding: 5px;
+  background-color: #03a9f4;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+.main form button:hover{
+  border: 1px solid #03a9f4;
+  color: #03a9f4;
+  background-color: #fff;
+}
+
 
 /*...................................................................order main start.............................................................*/
 
@@ -673,6 +704,7 @@ font-weight: 500;
   color:#03a9f4;
   
 }
+
 
 
 /*...............................END OF ADD CLIENT MAIN.......................................*/

@@ -95,6 +95,10 @@ function load_data() {
                 $(`#add-bus-form select[name='bus-captured-by-id']`).empty().append(select_option_map.franchisee);
                 $(`#create-order-form select[name='ad-captured-by-id']`).empty().append(select_option_map.franchisee);
                 $(`#create-order-form select[name='client-id']`).empty().append(select_option_map.client);
+                $('.cardBox .card .F-number').html(server_data.franchisee.length);
+                $('.cardBox .card .B-number').html(server_data.bus.length);
+                $('.cardBox .card .A-number').html(server_data.agency.length);
+                $('.cardBox .card .C-number').html(server_data.client.length);
             }
         }
     });
@@ -687,3 +691,40 @@ $('.list-bus-container table thead th:first-child input[type="checkbox"]').click
     $('.list-bus-container table tbody td:first-child input[type="checkbox"] ').prop("checked", this.checked);
 });
   
+  function onClick_cardFranchisee(){
+    $('body > .franchisee-main').show();
+    $('body > .bus-main').hide();
+    $('body > .agency-main').hide();
+    $('body > .add-client-main').hide();
+    $('body > .main').hide();
+    $('body > .gst-main').hide();
+    $('body > .organisation-main').hide();
+
+}
+function onClick_cardBus(){
+    $('body > .franchisee-main').hide();
+    $('body > .bus-main').show();
+    $('body > .agency-main').hide();
+    $('body > .add-client-main').hide();
+    $('body > .main').hide();
+    $('body > .gst-main').hide();
+    $('body > .organisation-main').hide();
+}
+function onClick_cardAgency(){
+    $('body > .franchisee-main').hide();
+    $('body > .bus-main').hide();
+    $('body > .agency-main').show();
+    $('body > .add-client-main').hide();
+    $('body > .main').hide();
+    $('body > .gst-main').hide();
+    $('body > .organisation-main').hide();
+}
+function onClick_cardClient(){
+    $('body > .franchisee-main').hide();
+    $('body > .bus-main').hide();
+    $('body > .agency-main').hide();
+    $('body > .add-client-main').show();
+    $('body > .main').hide();
+    $('body > .gst-main').hide();
+    $('body > .organisation-main').hide();
+}

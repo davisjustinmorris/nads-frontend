@@ -374,6 +374,20 @@ function load_orders(data) {
 
     for (const key in data) {
         const loop_data = data[key];
+        let pay_history = '';
+
+        let pay_loop_sl = 1;
+        for (const pay_id in loop_data['payment-history']) {
+            const loop_pay_data = loop_data['payment-history'][pay_id];
+            pay_history += `
+            <tr>
+                <td>${pay_loop_sl++}</td>
+                <td>${loop_pay_data['date-created']}</td>
+                <td>${loop_pay_data['amount']}</td>
+                <td>${loop_pay_data['payment-type']}</td>
+            </tr>`;
+        }
+
         output_html = `
         <details>
             <summary>
@@ -399,6 +413,20 @@ function load_orders(data) {
                     ${loop_data['is-payment-complete']?'':mark_payment_complete_stub}
                   </div>  
             </summary>
+            <div class="details-container">
+                <h3>Payment History</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sl No.</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Type</th>
+                        </th>
+                    </thead>
+                    <tbody>${pay_history}</tbody>
+                </table>
+            </div>
         </details>` + output_html;
     };
     $('.order-main .order-detail-container').empty().append(output_html);

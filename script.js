@@ -1,4 +1,4 @@
-let server_address = '192.168.0.111:5000';
+let server_address = '192.168.0.109:5000';
 
 let link_main_class_names = {
     "menu-main": "main",
@@ -98,7 +98,7 @@ function load_data() {
                 $('.cardBox .card .F-number').html(server_data.franchisee.length);
                 $('.cardBox .card .B-number').html(server_data.bus.length);
                 $('.cardBox .card .A-number').html(server_data.agency.length);
-                $('.cardBox .card .C-number').html(server_data.client.length);
+                $('.cardBox .card .C-number').html(server_data.ad_client.length);
             }
         }
     });
@@ -229,7 +229,7 @@ function create_order__calculate() {
 
     let duration_rate_map = {
         15: 166.6667,
-        30: 234.3334,
+        30: 233.3334,
         45: 300,
         60: 367.6667
     };

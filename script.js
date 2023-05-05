@@ -1,4 +1,4 @@
-let server_address = '192.168.0.110:5000';
+let server_address = '192.168.0.109:5000';
 
 let link_main_class_names = {
     "menu-main": "main",
@@ -684,6 +684,15 @@ function on_click__view_payments_agency_back_btn(context, ag_id) {
     $('.edit-bus-container > div.payments-agency-container').hide();
     $('.edit-bus-container table#list-agency-table').show();
 }
+function on_click_view_admaking_charge(context, cr_id) {
+    $('.company-revenue-main .adMaking-charge').show();
+    $('.company-revenue-main .company-revenue-table').hide();}
+function on_click_view_admaking_charge_back_btn(context, cr_id) {
+    $('.company-revenue-main .company-revenue-table').show();
+    $('.company-revenue-main .adMaking-charge').hide();
+}
+
+
 
 
 /*...............................................all select bus-list..........................................*/

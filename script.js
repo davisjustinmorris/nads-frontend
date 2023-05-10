@@ -75,6 +75,7 @@ function load_data() {
                 if (server_data.server) load_server_charges(server_data.server);
                 if (server_data.gst) load_gst_table(server_data.gst);
                 if (server_data.organisation) load_organisation(server_data.organisation);
+                if (server_data.ad_making_charge) load_ad_making_charge(server_data.ad_making_charge);
 
                 if (server_data.franchisee) {
                     server_data.franchisee.forEach(function (loop_data) {
@@ -507,6 +508,21 @@ function load_organisation(data) {
         }
     })
     $(`.organisation-main .organisation-container tbody`).empty().append(html_data);
+}
+
+function load_ad_making_charge(data) {
+    let html_data = '';
+    let i = 1;
+    for (let key in data) {
+        html_data += `
+        <tr>
+            <td>${i++}</td>
+            <td>${data[key]['date']}</td>
+            <td>${data[key]['ad-name']}</td>
+            <td>${data[key]['ad-making-charge']}</td>
+        </tr>`;
+    }
+    $(`.company-revenue-main .adMaking-charge tbody`).empty().append(html_data);
 }
 
 function on_click__orders_record_payment(context) {

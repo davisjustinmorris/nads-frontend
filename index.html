@@ -1523,7 +1523,13 @@
         </div>
     </div>
       <div class="company-revenue-table">
+        <div>
         <span><h2>COMPANY REVENUE</h2></span>
+        </div>
+        <div class="admakingBtncontainer">    
+            <a href="#" class="admakingBtn" >Revenue Table</a>
+            <a href="#" class="admakingBtn" onclick="  on_click_view_admaking_charge(this)">AD Making Charge</a>
+        </div>
         <table cellspacing="30">
           <thead>
             <tr>
@@ -1534,7 +1540,6 @@
               <th>AMOUNT</th>
               <th>DATE OF INVOICE</th>
               <th>DATE OF PAYMENT</th>
-              <th>AD MAKING CHARGE</th>
             </tr>
           </thead>
           <tbody>
@@ -1546,7 +1551,6 @@
               <td>5000</td>
               <td><span>29/3/2023</span></td>
               <td><span>29/4/2023</span></td>
-              <td> <a href="#" onclick="  on_click_view_admaking_charge(this)">View Ad Making <br>Charge</a></td>
             </tr>
             <tr>
               <td>2</td>
@@ -1556,14 +1560,17 @@
               <td>7000</td>
               <td><span>29/3/2023</span></td>
               <td><span>29/4/2023</span></td>
-              <td> <a href="#" onclick="on_click_view_admaking_charge(this)">View Ad Making <br>Charge</a></td>
             </tr>
           </tbody>
         </table>
       </div>
     <div class="adMaking-charge" style="display: none;">
-        <div class="companyRevenue-backBtn">
-          <span onclick="on_click_view_admaking_charge_back_btn(this)"><i class="fa-solid fa-arrow-left"></i></span>
+        <div>
+            <span><h2>AD MAKING CHARGES</h2></span>
+        </div>
+        <div class="admakingBtncontainer">    
+            <a href="#" class="admakingBtn" onclick="on_click_view_admaking_charge_back_btn(this)">Revenue Table</a>
+            <a href="#" class="admakingBtn" onclick="  on_click_view_admaking_charge(this)">AD Making Charge</a>
         </div>
         <table cellspacing="10">
           <thead>
